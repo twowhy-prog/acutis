@@ -23,8 +23,6 @@
     font:400 var(--base)/1.7 system-ui,-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Segoe UI",Roboto,sans-serif;
     -webkit-text-size-adjust:100%; overflow-x:hidden;
   }
-
-  /* ===== HERO ===== */
   .hero{
     position:relative; min-height:68svh; display:flex; align-items:center; justify-content:center; isolation:isolate;
     background: radial-gradient(1200px 500px at 80% -10%, rgba(90,160,255,.25), transparent),
@@ -47,10 +45,7 @@
     background:var(--card); border:1px solid var(--border);
     backdrop-filter:saturate(1.2) blur(14px);
     border-radius:18px; box-shadow:var(--shadow);
-    transform:translateY(10px); opacity:0; animation:pop .9s .15s both cubic-bezier(.2,.8,.2,1);
   }
-  @keyframes pop{ to{ transform:none; opacity:1 } }
-
   .brandrow{display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:8px}
   .brandrow img{height:42px}
   h1{margin:.2rem 0 .4rem; font-size:clamp(26px,4.8vw,40px)}
@@ -70,7 +65,6 @@
     box-shadow:0 8px 20px rgba(0,0,0,.12), inset 0 0 0 1px rgba(255,255,255,.06);
   }
 
-  /* ===== Tabs (radio) ===== */
   .tabs{margin:18px auto 0; width:min(100%,1000px); padding:0 clamp(16px,4vw,36px) 56px}
   .tabs input[type=radio]{display:none}
   .tab-labels{display:flex; gap:10px; flex-wrap:wrap}
@@ -82,7 +76,6 @@
     box-shadow:0 6px 18px rgba(0,0,0,.12), inset 0 0 0 1px rgba(255,255,255,.06);
     color:var(--fg); transition:transform .3s, box-shadow .3s;
   }
-  .tab-labels label:hover{ transform:translateY(-1px) }
   #t1:checked ~ .tab-labels label[for=t1],
   #t2:checked ~ .tab-labels label[for=t2],
   #t3:checked ~ .tab-labels label[for=t3],
@@ -93,14 +86,12 @@
   .panels{margin:14px 0 0}
   .panel{
     display:none; background:var(--glass); border:1px solid var(--border); border-radius:18px;
-    box-shadow:var(--shadow); backdrop-filter:saturate(1.1) blur(14px); padding:18px;
-    transform-origin:12% 0; opacity:0; transform:translateY(10px) scale(.994);
-    transition:opacity .35s ease, transform .45s cubic-bezier(.2,.8,.2,1);
+    box-shadow:0 12px 30px rgba(0,0,0,.2); backdrop-filter:saturate(1.1) blur(14px); padding:18px;
   }
   #t1:checked ~ .panels #p1,
   #t2:checked ~ .panels #p2,
   #t3:checked ~ .panels #p3,
-  #t4:checked ~ .panels #p4{ display:block; opacity:1; transform:none }
+  #t4:checked ~ .panels #p4{ display:block }
 
   h2{margin:.2rem 0 .6rem; font-size:clamp(20px,3.6vw,26px)}
   .lead{font-size:1.06em}
@@ -113,7 +104,18 @@
   @media (min-width:760px){ .split{ grid-template-columns:1.1fr .9fr } }
   .card{background:var(--glass); border:1px solid var(--border); border-radius:14px; padding:12px}
 
-  /* Video */
+  /* Support callout */
+  .callout{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); 
+    border:1px solid var(--border); border-radius:14px; padding:14px; 
+    display:flex; flex-direction:column; gap:10px;}
+  .callout h3{margin:0 0 4px; font-size:1.05em}
+  .callout p{margin:0}
+  .callout .btn{align-self:flex-start}
+  @media (min-width:560px){
+    .callout{flex-direction:row; align-items:center; justify-content:space-between}
+    .callout .btn{margin-left:12px}
+  }
+
   .video{position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:14px; border:1px solid var(--border); background:#000}
   .video iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
   .thumbLink{display:block; position:relative; border:1px solid var(--border); border-radius:14px; overflow:hidden; background:#000; margin-top:12px; text-decoration:none}
@@ -122,33 +124,19 @@
   .playBtn{width:68px;height:48px;background:rgba(0,0,0,.55);border-radius:10px;display:inline-flex;align-items:center;justify-content:center}
 
   footer{width:min(100%,1000px); margin:26px auto; padding:0 clamp(16px,4vw,36px); color:var(--muted); font-size:.9em; text-align:center}
-
-  @media (prefers-reduced-motion: reduce){
-    .hero-inner{animation:none !important}
-    .tab-labels label, .panel{transition:none !important; transform:none !important}
-  }
-  @media print{
-    .tab-labels{display:none}
-    .panel{display:block !important; opacity:1 !important; transform:none !important; break-inside:avoid}
-    .hero{min-height:auto}
-    .hero::before{opacity:.2}
-    body{background:#fff}
-  }
 </style>
 </head>
 <body>
 
-  <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="hero-inner">
       <div class="brandrow">
-        <!-- 업로드하신 로고 파일명에 맞춤 -->
-        <img src="logo.png" alt="cpbc 가톨릭평화방송·평화신문 로고" loading="eager">
+        <img src="기본(배경X).png" alt="cpbc 가톨릭평화방송·평화신문 로고" loading="eager">
         <h1>카를로 아쿠티스 성상 축복식</h1>
       </div>
       <div class="meta">
         <div>📅 <strong>2025. 9. 16.(화) 오전 11:00</strong></div>
-        <div>📍 본사 주차장 (서울 중구 삼일대로 330)</div>
+        <div>📍 cpbc 본사 주차장 (서울 중구 삼일대로 330)</div>
         <div>⛪ 집전: 재단이사장 구요비 주교님 & cpbc 사제단</div>
       </div>
       <div class="cta-row">
@@ -158,7 +146,6 @@
     </div>
   </section>
 
-  <!-- ===== CONTENT TABS ===== -->
   <section class="tabs" aria-label="내용 탭">
     <input checked id="t1" name="tabs" type="radio">
     <input id="t2" name="tabs" type="radio">
@@ -173,7 +160,6 @@
     </div>
 
     <div class="panels">
-      <!-- 안내 -->
       <article id="p1" class="panel" role="tabpanel" aria-labelledby="t1">
         <div class="split">
           <div>
@@ -189,11 +175,13 @@
               <dt>집전</dt><dd>재단이사장 구요비 주교님 & cpbc 사제단</dd>
               <dt>참석</dt><dd>재단이사, 미래발전위원, 성상설립 후원인 등</dd>
             </dl>
-            <p class="muted">※ 현장 진행과 세부 순서는 상황에 따라 일부 조정될 수 있습니다.</p>
-            <p class="card" style="margin-top:10px"><strong>후원 안내</strong><br>
-              성상 설립과 청년 신앙 사도직을 위한 후원에 감사드립니다.
-              <a class="btn" style="margin-left:8px" href="https://mrmweb.hsit.co.kr/v2/Member/SupportOnce.aspx?action=once&server=TMf%200xyArRN3njKxyq0I4A==" target="_blank" rel="noreferrer">후원하기</a>
-            </p>
+            <div class="callout" style="margin-top:10px">
+              <div>
+                <h3>후원 안내</h3>
+                <p>성상 설립과 청년 신앙 사도직을 위한 후원에 감사드립니다.</p>
+              </div>
+              <a class="btn" href="https://mrmweb.hsit.co.kr/v2/Member/SupportOnce.aspx?action=once&server=TMf%200xyArRN3njKxyq0I4A==" target="_blank" rel="noreferrer">후원하기</a>
+            </div>
           </div>
           <div class="card" style="border-radius:14px; overflow:hidden">
             <img src="acutis-hero.jpg" alt="카를로 아쿠티스/성상 사진" loading="lazy" style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover;filter:saturate(1.05) contrast(1.02)">
@@ -201,7 +189,6 @@
         </div>
       </article>
 
-      <!-- 순서 (전례 형식) -->
       <article id="p2" class="panel" role="tabpanel" aria-labelledby="t2">
         <h2>진행 순서(전례 형식)</h2>
         <ol class="list">
@@ -239,7 +226,6 @@
         <p class="muted">※ 미사 외 예식 형식이며, 실제 집전은 예식서와 주례 사제의 재량을 우선합니다.</p>
       </article>
 
-      <!-- 전례문(회중 응답) -->
       <article id="p3" class="panel" role="tabpanel" aria-labelledby="t3">
         <h2>전례문 (회중 응답 중심)</h2>
         <p class="lead">※ 사제 주례문은 「축복예식」 성상·성물 축복 본문을 따릅니다. 아래는 회중 응답 및 지향 예시입니다.</p>
@@ -252,14 +238,13 @@
         <h3>보편 지향 기도(예시)</h3>
         <p class="muted">각 지향 후 응답: <strong>“주님, 저희의 기도를 들어 주소서.”</strong></p>
         <ol class="list">
-          <li>교회를 이끄시는 교황과 주교단, 모든 사제와 신자들에게 성령의 지혜를 주소서. <br><strong>회중</strong> 주님, 저희의 기도를 들어 주소서.</li>
+          <li>교황과 주교단, 모든 사제와 신자들에게 성령의 지혜를 주소서. <br><strong>회중</strong> 주님, 저희의 기도를 들어 주소서.</li>
           <li>청소년과 젊은이들이 성인 카를로 아쿠티스를 본받아 신앙을 용기 있게 살아가게 하소서. <br><strong>회중</strong> 주님, 저희의 기도를 들어 주소서.</li>
           <li>디지털 문화를 복음화의 도구로 삼아 많은 이들이 주님을 만나게 하소서. <br><strong>회중</strong> 주님, 저희의 기도를 들어 주소서.</li>
           <li>성상 설립에 동참한 후원자들과 이 자리에 함께한 모든 이들에게 건강과 평화를 주소서. <br><strong>회중</strong> 주님, 저희의 기도를 들어 주소서.</li>
         </ol>
         <hr>
         <h3>성상 축복 기도(예시)</h3>
-        <p class="muted">※ 반드시 주례 사제가 예식서 본문으로 집전합니다. 아래는 의미를 돕는 보조문입니다.</p>
         <div class="card">
           전능하신 하느님, 당신께서는 모든 성인들 안에 놀라운 은총을 드러내시어, 교회가 그들의 모범을 따라 살게 하셨나이다.<br>
           이 <strong>카를로 아쿠티스 성상</strong>을 바라보는 모든 이에게 성체를 사랑한 성인의 믿음과 열정을 본받는 은혜를 내려 주소서.<br>
@@ -270,7 +255,6 @@
         <p><strong>사제</strong> 주님을 찬미합시다. <br><strong>회중</strong> 하느님, 감사합니다.</p>
       </article>
 
-      <!-- 다큐 -->
       <article id="p4" class="panel" role="tabpanel" aria-labelledby="t4">
         <h2>카를로 아쿠티스 다큐 영상</h2>
         <div class="video" aria-label="다큐 영상">
