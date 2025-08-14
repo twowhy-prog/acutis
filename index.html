@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
 <meta charset="utf-8">
@@ -6,733 +6,302 @@
 <title>카를로 아쿠티스 성상 축복식</title>
 <meta name="color-scheme" content="light dark">
 <style>
-:root {
-  --bg: linear-gradient(135deg, #0a0e1a 0%, #1a1d29 50%, #0f1419 100%);
-  --surface: rgba(255, 255, 255, 0.05);
-  --surface-hover: rgba(255, 255, 255, 0.08);
-  --card: rgba(255, 255, 255, 0.07);
-  --border: rgba(255, 255, 255, 0.15);
-  --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --text-muted: rgba(255, 255, 255, 0.5);
-  --accent: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --accent-glow: rgba(102, 126, 234, 0.3);
-  --gold: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
-  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.15);
-  --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.25);
-  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.35);
-  --blur: 20px;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
-    --surface: rgba(255, 255, 255, 0.8);
-    --surface-hover: rgba(255, 255, 255, 0.95);
-    --card: rgba(255, 255, 255, 0.6);
-    --border: rgba(0, 0, 0, 0.1);
-    --text-primary: #1e293b;
-    --text-secondary: #475569;
-    --text-muted: #64748b;
-    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
-    --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.12);
-    --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.15);
+  :root{
+    --bg:#0b0d12; --fg:#e9eef7; --muted:#9fb0c8;
+    --brand:#5aa0ff; --brand2:#9f7bff;
+    --glass:rgba(255,255,255,.08); --card:rgba(18,22,28,.55); --border:rgba(255,255,255,.18);
+    --shadow:0 12px 36px rgba(0,0,0,.35);
+    --radius:18px; --base:17px;
   }
-}
-
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  background: var(--bg);
-  background-attachment: fixed;
-  color: var(--text-primary);
-  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard Variable", Pretendard, "Noto Sans KR", sans-serif;
-  line-height: 1.6;
-  font-size: 16px;
-  overflow-x: hidden;
-  min-height: 100vh;
-}
-
-/* === 헤더 영역 === */
-.hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: 
-    radial-gradient(circle at 30% 20%, rgba(102, 126, 234, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 70% 80%, rgba(118, 75, 162, 0.15) 0%, transparent 50%),
-    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-  z-index: -1;
-}
-
-.hero-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  position: relative;
-}
-
-.logo-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
-}
-
-.logo-section img {
-  height: 48px;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
-}
-
-.hero h1 {
-  font-size: clamp(2rem, 5vw, 4rem);
-  font-weight: 700;
-  margin: 0;
-  background: var(--gold);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  letter-spacing: -0.02em;
-}
-
-.event-info {
-  background: var(--card);
-  backdrop-filter: blur(var(--blur));
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  padding: 2rem;
-  margin: 2rem auto;
-  max-width: 800px;
-  box-shadow: var(--shadow-md);
-  transition: all 0.3s ease;
-}
-
-.event-info:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-}
-
-.event-details {
-  display: grid;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  text-align: left;
-}
-
-@media (min-width: 768px) {
-  .event-details {
-    grid-template-columns: repeat(2, 1fr);
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f4f6fb; --fg:#0f172a; --muted:#5b6780; --glass:rgba(255,255,255,.65); --card:rgba(255,255,255,.5); --border:rgba(0,0,0,.08); --shadow:0 16px 36px rgba(88,100,125,.15); }
   }
-}
-
-.detail-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-}
-
-.detail-icon {
-  font-size: 1.2em;
-  margin-top: 0.1rem;
-  flex-shrink: 0;
-}
-
-.detail-text strong {
-  display: block;
-  margin-bottom: 0.25rem;
-}
-
-.detail-text span {
-  color: var(--text-secondary);
-  font-size: 0.95em;
-}
-
-.cta-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 50px;
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-primary {
-  background: var(--accent);
-  color: white;
-  box-shadow: 0 8px 20px var(--accent-glow);
-}
-
-.btn-secondary {
-  background: var(--surface);
-  color: var(--text-primary);
-  border: 1px solid var(--border);
-  backdrop-filter: blur(var(--blur));
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-}
-
-.btn-primary:hover {
-  box-shadow: 0 12px 30px var(--accent-glow);
-}
-
-/* === 메인 콘텐츠 === */
-.main-content {
-  max-width: 1200px;
-  margin: -4rem auto 0;
-  padding: 0 2rem 4rem;
-  position: relative;
-  z-index: 2;
-}
-
-.content-tabs {
-  background: var(--card);
-  backdrop-filter: blur(var(--blur));
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  padding: 2rem;
-  box-shadow: var(--shadow-lg);
-}
-
-.tab-nav {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-  background: var(--surface);
-  border-radius: 16px;
-  padding: 0.5rem;
-}
-
-.tab-nav input[type="radio"] {
-  display: none;
-}
-
-.tab-nav label {
-  flex: 1;
-  text-align: center;
-  padding: 1rem 1.5rem;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: 500;
-  color: var(--text-secondary);
-  user-select: none;
-}
-
-.tab-nav label:hover {
-  background: var(--surface-hover);
-  color: var(--text-primary);
-}
-
-#tab1:checked ~ .tab-nav label[for="tab1"],
-#tab2:checked ~ .tab-nav label[for="tab2"],
-#tab3:checked ~ .tab-nav label[for="tab3"] {
-  background: var(--accent);
-  color: white;
-  box-shadow: var(--shadow-sm);
-  transform: scale(1.02);
-}
-
-.tab-content {
-  display: none;
-  animation: fadeIn 0.4s ease;
-}
-
-#tab1:checked ~ .tab-panels #panel1,
-#tab2:checked ~ .tab-panels #panel2,
-#tab3:checked ~ .tab-panels #panel3 {
-  display: block;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* === 콘텐츠 스타일링 === */
-.content-grid {
-  display: grid;
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-@media (min-width: 1024px) {
-  .content-grid {
-    grid-template-columns: 1fr 400px;
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--fg);
+    font:400 var(--base)/1.7 system-ui,-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Segoe UI",Roboto,sans-serif;
+    -webkit-text-size-adjust:100%; overflow-x:hidden;
   }
-}
 
-.content-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 1.5rem;
-  backdrop-filter: blur(var(--blur));
-}
-
-.content-card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-.content-card h3 {
-  margin: 1.5rem 0 0.75rem 0;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.info-grid {
-  display: grid;
-  gap: 0.75rem;
-  margin: 1.5rem 0;
-}
-
-.info-item {
-  display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 1rem;
-  padding: 0.75rem 0;
-}
-
-.info-label {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-
-.info-value {
-  font-weight: 500;
-}
-
-.process-list {
-  counter-reset: step;
-  list-style: none;
-  padding: 0;
-}
-
-.process-list li {
-  counter-increment: step;
-  position: relative;
-  padding: 1rem 0 1rem 3rem;
-  border-left: 2px solid var(--border);
-  margin-left: 1rem;
-}
-
-.process-list li::before {
-  content: counter(step);
-  position: absolute;
-  left: -1.25rem;
-  top: 1rem;
-  width: 2.5rem;
-  height: 2.5rem;
-  background: var(--accent);
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 600;
-  font-size: 0.9rem;
-  box-shadow: var(--shadow-sm);
-}
-
-.process-list li:last-child {
-  border-left-color: transparent;
-}
-
-.prayer-section {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin: 1rem 0;
-}
-
-.prayer-section p {
-  margin: 0.5rem 0;
-}
-
-.prayer-section strong {
-  color: var(--text-primary);
-}
-
-.video-container {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-  border-radius: 16px;
-  background: #000;
-  box-shadow: var(--shadow-md);
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-.image-placeholder {
-  width: 100%;
-  height: 300px;
-  background: linear-gradient(45deg, var(--surface) 0%, var(--card) 100%);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-muted);
-  font-style: italic;
-  border: 1px solid var(--border);
-}
-
-.support-card {
-  background: var(--gold);
-  color: #1a1a1a;
-  border-radius: 16px;
-  padding: 1.5rem;
-  margin-top: 2rem;
-  text-align: center;
-}
-
-.support-card h3 {
-  margin: 0 0 1rem 0;
-  color: #1a1a1a;
-}
-
-.support-card .btn {
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  margin-top: 1rem;
-}
-
-.support-card .btn:hover {
-  background: rgba(0, 0, 0, 0.9);
-}
-
-/* === 푸터 === */
-footer {
-  text-align: center;
-  padding: 2rem;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  border-top: 1px solid var(--border);
-  background: var(--surface);
-  backdrop-filter: blur(var(--blur));
-}
-
-/* === 반응형 === */
-@media (max-width: 767px) {
-  .hero-content {
-    padding: 1rem;
+  /* ===== HERO ===== */
+  .hero{
+    position:relative; min-height:68svh; display:flex; align-items:center; justify-content:center; isolation:isolate;
+    background: radial-gradient(1200px 500px at 80% -10%, rgba(90,160,255,.25), transparent),
+                radial-gradient(900px 500px at 10% 120%, rgba(159,123,255,.22), transparent),
+                #090b11;
   }
-  
-  .event-info {
-    padding: 1.5rem;
-    margin: 1rem;
+  .hero::before{
+    content:""; position:absolute; inset:0;
+    background:url('acutis-hero.jpg') center/cover no-repeat;
+    filter:saturate(1.05) contrast(1.02) brightness(.9);
+    opacity:.35; z-index:-2;
   }
-  
-  .main-content {
-    margin-top: -2rem;
-    padding: 0 1rem 2rem;
+  .hero::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(0,0,0,.48), rgba(0,0,0,.25) 35%, transparent 60%, rgba(0,0,0,.55));
+    z-index:-1;
   }
-  
-  .content-tabs {
-    padding: 1rem;
+  .hero-inner{
+    width:min(100%,1000px); padding:28px clamp(16px,4vw,36px);
+    background:var(--card); border:1px solid var(--border);
+    backdrop-filter:saturate(1.2) blur(14px);
+    border-radius:18px; box-shadow:var(--shadow);
+    transform:translateY(10px); opacity:0; animation:pop .9s .15s both cubic-bezier(.2,.8,.2,1);
   }
-  
-  .tab-nav {
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-  
-  .tab-nav label {
-    padding: 0.75rem 1rem;
-  }
-}
+  @keyframes pop{ to{ transform:none; opacity:1 } }
 
-/* === 애니메이션 === */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-.statue-container {
-  position: relative;
-  margin-bottom: 1rem;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #f5f5f0;
-  box-shadow: var(--shadow-md);
-}
-
-.statue-info h4 {
-  font-family: 'Georgia', serif;
-  letter-spacing: 0.5px;
-  text-align: center;
-  background: var(--gold);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.logo-section img {
-  height: 60px;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
-  animation: float 6s ease-in-out infinite;
-  animation-delay: -1s;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  .brandrow{display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:8px}
+  .brandrow img{height:42px}
+  h1{margin:.2rem 0 .4rem; font-size:clamp(26px,4.8vw,40px)}
+  .meta{display:flex; gap:10px 18px; flex-wrap:wrap; color:var(--muted); font-weight:600}
+  .cta-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+  .btn{
+    appearance:none; border:0; cursor:pointer; text-decoration:none; user-select:none;
+    padding:12px 18px; border-radius:14px; font-weight:800; letter-spacing:.2px;
+    background:linear-gradient(135deg,var(--brand),var(--brand2)); color:#fff;
+    box-shadow:0 10px 28px rgba(90,160,255,.35);
+    transition:transform .25s ease, filter .25s ease, box-shadow .25s ease;
   }
-}
+  .btn:hover{ transform:translateY(-1px) }
+  .btn.ghost{
+    background:transparent; color:var(--fg);
+    border:1px solid var(--border);
+    box-shadow:0 8px 20px rgba(0,0,0,.12), inset 0 0 0 1px rgba(255,255,255,.06);
+  }
+
+  /* ===== Tabs (radio) ===== */
+  .tabs{margin:18px auto 0; width:min(100%,1000px); padding:0 clamp(16px,4vw,36px) 56px}
+  .tabs input[type=radio]{display:none}
+  .tab-labels{display:flex; gap:10px; flex-wrap:wrap}
+  .tab-labels label{
+    flex:1 0 auto; text-align:center; cursor:pointer; user-select:none; white-space:nowrap;
+    padding:12px 16px; border-radius:999px; font-weight:800;
+    background:linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.04));
+    border:1px solid var(--border);
+    box-shadow:0 6px 18px rgba(0,0,0,.12), inset 0 0 0 1px rgba(255,255,255,.06);
+    color:var(--fg); transition:transform .3s, box-shadow .3s;
+  }
+  .tab-labels label:hover{ transform:translateY(-1px) }
+  #t1:checked ~ .tab-labels label[for=t1],
+  #t2:checked ~ .tab-labels label[for=t2],
+  #t3:checked ~ .tab-labels label[for=t3],
+  #t4:checked ~ .tab-labels label[for=t4]{
+    background:linear-gradient(135deg,var(--brand),var(--brand2)); color:#fff; border-color:transparent;
+    box-shadow:0 10px 30px rgba(90,160,255,.35);
+  }
+  .panels{margin:14px 0 0}
+  .panel{
+    display:none; background:var(--glass); border:1px solid var(--border); border-radius:18px;
+    box-shadow:var(--shadow); backdrop-filter:saturate(1.1) blur(14px); padding:18px;
+    transform-origin:12% 0; opacity:0; transform:translateY(10px) scale(.994);
+    transition:opacity .35s ease, transform .45s cubic-bezier(.2,.8,.2,1);
+  }
+  #t1:checked ~ .panels #p1,
+  #t2:checked ~ .panels #p2,
+  #t3:checked ~ .panels #p3,
+  #t4:checked ~ .panels #p4{ display:block; opacity:1; transform:none }
+
+  h2{margin:.2rem 0 .6rem; font-size:clamp(20px,3.6vw,26px)}
+  .lead{font-size:1.06em}
+  .kv{display:grid; grid-template-columns:auto 1fr; gap:6px 12px}
+  .kv dt{color:var(--muted)} .kv dd{margin:0; font-weight:700}
+  .list{margin:.2rem 0 0; padding-left:22px}
+  .list li{margin:.35rem 0}
+  .muted{color:var(--muted)}
+  .split{display:grid; gap:16px}
+  @media (min-width:760px){ .split{ grid-template-columns:1.1fr .9fr } }
+  .card{background:var(--glass); border:1px solid var(--border); border-radius:14px; padding:12px}
+
+  /* Video */
+  .video{position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:14px; border:1px solid var(--border); background:#000}
+  .video iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+  .thumbLink{display:block; position:relative; border:1px solid var(--border); border-radius:14px; overflow:hidden; background:#000; margin-top:12px; text-decoration:none}
+  .thumbLink img{display:block; width:100%; opacity:.92}
+  .thumbLink span{position:absolute; inset:0; display:flex; align-items:center; justify-content:center}
+  .playBtn{width:68px;height:48px;background:rgba(0,0,0,.55);border-radius:10px;display:inline-flex;align-items:center;justify-content:center}
+
+  footer{width:min(100%,1000px); margin:26px auto; padding:0 clamp(16px,4vw,36px); color:var(--muted); font-size:.9em; text-align:center}
+
+  @media (prefers-reduced-motion: reduce){
+    .hero-inner{animation:none !important}
+    .tab-labels label, .panel{transition:none !important; transform:none !important}
+  }
+  @media print{
+    .tab-labels{display:none}
+    .panel{display:block !important; opacity:1 !important; transform:none !important; break-inside:avoid}
+    .hero{min-height:auto}
+    .hero::before{opacity:.2}
+    body{background:#fff}
+  }
 </style>
 </head>
 <body>
-  <!-- 히어로 섹션 -->
+
+  <!-- ===== HERO ===== -->
   <section class="hero">
-    <div class="hero-content">
-      <div class="logo-section">
-        <img src="logo.png" alt="CPBC 가톨릭평화방송 로고" loading="eager">
-        <h1>카를로 아쿠티스<br>성상 축복식</h1>
+    <div class="hero-inner">
+      <div class="brandrow">
+        <!-- 업로드하신 로고 파일명에 맞춤 -->
+        <img src="기본(배경X).png" alt="cpbc 가톨릭평화방송·평화신문 로고" loading="eager">
+        <h1>카를로 아쿠티스 성상 축복식</h1>
       </div>
-      
-      <div class="event-info">
-        <div class="event-details">
-          <div class="detail-item">
-            <span class="detail-icon">📅</span>
-            <div class="detail-text">
-              <strong>2025년 9월 16일 (화)</strong>
-              <span>오전 11:00</span>
-            </div>
-          </div>
-          <div class="detail-item">
-            <span class="detail-icon">📍</span>
-            <div class="detail-text">
-              <strong>CPBC 본사 주차장</strong>
-              <span>서울 중구 삼일대로 330</span>
-            </div>
-          </div>
-          <div class="detail-item">
-            <span class="detail-icon">⛪</span>
-            <div class="detail-text">
-              <strong>집전자</strong>
-              <span>재단이사장 구요비 주교님 & CPBC 사제단</span>
-            </div>
-          </div>
-          <div class="detail-item">
-            <span class="detail-icon">👥</span>
-            <div class="detail-text">
-              <strong>참석 대상</strong>
-              <span>재단이사, 미래발전위원, 후원인 등</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="cta-buttons">
-          <a href="https://mrmweb.hsit.co.kr/v2/Member/SupportOnce.aspx?action=once&server=TMf%200xyArRN3njKxyq0I4A==" target="_blank" rel="noreferrer" class="btn btn-primary">
-            🙏 성상 설립 후원하기
-          </a>
-          <a href="#panel3" class="btn btn-secondary">
-            ▶️ 다큐 영상 보기
-          </a>
-        </div>
+      <div class="meta">
+        <div>📅 <strong>2025. 9. 16.(화) 오전 11:00</strong></div>
+        <div>📍 본사 주차장 (서울 중구 삼일대로 330)</div>
+        <div>⛪ 집전: 재단이사장 구요비 주교님 & cpbc 사제단</div>
+      </div>
+      <div class="cta-row">
+        <a class="btn" href="https://mrmweb.hsit.co.kr/v2/Member/SupportOnce.aspx?action=once&server=TMf%200xyArRN3njKxyq0I4A==" target="_blank" rel="noreferrer">🙏 성상 설립 후원하기</a>
+        <a class="btn ghost" href="#p4">▶ 다큐 영상 보기</a>
       </div>
     </div>
   </section>
 
-  <!-- 메인 콘텐츠 -->
-  <main class="main-content">
-    <div class="content-tabs">
-      <!-- 탭 네비게이션 -->
-      <input type="radio" id="tab1" name="tabs" checked>
-      <input type="radio" id="tab2" name="tabs">
-      <input type="radio" id="tab3" name="tabs">
-      
-      <div class="tab-nav">
-        <label for="tab1">📋 행사 안내</label>
-        <label for="tab2">🙏 기도문 & 진행순서</label>
-        <label for="tab3">🎬 다큐멘터리</label>
-      </div>
+  <!-- ===== CONTENT TABS ===== -->
+  <section class="tabs" aria-label="내용 탭">
+    <input checked id="t1" name="tabs" type="radio">
+    <input id="t2" name="tabs" type="radio">
+    <input id="t3" name="tabs" type="radio">
+    <input id="t4" name="tabs" type="radio">
 
-      <!-- 탭 패널 -->
-      <div class="tab-panels">
-        <!-- 행사 안내 -->
-        <div id="panel1" class="tab-content">
-          <div class="content-grid">
-            <div>
-              <div class="content-card">
-                <h2>제2주보성인 추대 및 성상 축복</h2>
-                <p>가톨릭평화방송은 청소년 성인 <strong>카를로 아쿠티스</strong>를 본사의 <strong>제2주보성인</strong>으로 추대하고, 그 신심을 본받고자 성상을 세워 축복식을 거행합니다.</p>
-                
-                <p>카를로 아쿠티스 성인은 "성체야말로 나의 하늘로 가는 고속도로"라 고백하며 성체 신심과 디지털 복음화의 모범을 남겼습니다.</p>
-                
-                <div class="info-grid">
-                  <div class="info-item">
-                    <div class="info-label">일시</div>
-                    <div class="info-value">2025년 9월 16일(화) 오전 11:00</div>
-                  </div>
-                  <div class="info-item">
-                    <div class="info-label">장소</div>
-                    <div class="info-value">CPBC 본사 주차장<br><small>서울시 중구 삼일대로 330</small></div>
-                  </div>
-                  <div class="info-item">
-                    <div class="info-label">집전</div>
-                    <div class="info-value">재단이사장 구요비 주교님 & CPBC 사제단</div>
-                  </div>
-                  <div class="info-item">
-                    <div class="info-label">참석</div>
-                    <div class="info-value">재단이사, 미래발전위원, 성상설립 후원인 등</div>
-                  </div>
-                </div>
-                
-                <div class="support-card">
-                  <h3>🙏 후원 안내</h3>
-                  <p>성상 설립과 청년 신앙 사도직을 위한 후원에 감사드립니다.</p>
-                  <a href="https://mrmweb.hsit.co.kr/v2/Member/SupportOnce.aspx?action=once&server=TMf%200xyArRN3njKxyq0I4A==" target="_blank" rel="noreferrer" class="btn">후원하기</a>
-                </div>
-              </div>
-            </div>
-            
-            <div class="content-card">
-              <h3>성인 카를로 아쿠티스</h3>
-              <div class="statue-container">
-                <img src="acutis-hero.jpg" 
-                     alt="카를로 아쿠티스 성상" 
-                     style="width: 100%; height: 350px; object-fit: cover; border-radius: 12px; box-shadow: var(--shadow-md);">
-              </div>
-              <div class="statue-info">
-                <h4 style="margin: 1rem 0 0.5rem; font-size: 1rem; font-weight: 600;">CARLO ACUTIS</h4>
-                <p style="margin: 0; font-size: 0.9rem; color: var(--text-muted);">1991 - 2006</p>
-                <p style="margin: 1rem 0 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">
-                  "성체야말로 나의 하늘로 가는 고속도로"라고 고백한 카를로 아쿠티스 성인은 디지털 시대의 복음화 모범을 보여주신 청소년 성인입니다.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="tab-labels" role="tablist">
+      <label for="t1" role="tab" aria-controls="p1">행사 안내</label>
+      <label for="t2" role="tab" aria-controls="p2">진행 순서</label>
+      <label for="t3" role="tab" aria-controls="p3">전례문(응답)</label>
+      <label for="t4" role="tab" aria-controls="p4">다큐 영상</label>
+    </div>
 
-        <!-- 기도문 & 진행순서 -->
-        <div id="panel2" class="tab-content">
-          <div class="content-grid">
-            <div class="content-card">
-              <h2>진행 순서</h2>
-              <ol class="process-list">
-                <li><strong>개회 선언</strong> · 십자성호</li>
-                <li><strong>행사 의미 및 성인 소개</strong> (사회)</li>
-                <li><strong>성경 봉독</strong> (요한 6장 등)</li>
-                <li><strong>성상 축복 예식</strong> (사제 주례)
-                  <ul style="margin-top: 0.5rem; padding-left: 1rem;">
-                    <li>축복기도</li>
-                    <li>성수 예식</li>
-                  </ul>
-                </li>
-                <li><strong>보편 지향 기도</strong> (회중 응답)</li>
-                <li><strong>감사 인사 및 후원자 소개</strong></li>
-                <li><strong>기념 사진 촬영</strong></li>
-                <li><strong>오찬 안내</strong></li>
-              </ol>
-            </div>
-            
-            <div>
-              <div class="content-card">
-                <h2>전례문 (회중 응답)</h2>
-                
-                <div class="prayer-section">
-                  <p><strong>사제:</strong> 성부와 성자와 성령의 이름으로.</p>
-                  <p><strong>회중:</strong> 아멘.</p>
-                  <p><strong>사제:</strong> 우리 주 예수 그리스도의 은이이 여러분과 함께.</p>
-                  <p><strong>회중:</strong> 또한 사제와 함께.</p>
-                </div>
-
-                <h3>보편 지향 기도</h3>
-                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
-                  각 지향 후 응답: <strong>"주님, 저희의 기도를 들어 주소서."</strong>
-                </p>
-                
-                <div class="prayer-section">
-                  <p>1. 교황과 주교단, 모든 사제와 신자들에게 성령의 지혜를 주소서.</p>
-                  <p>2. 청소년과 젊은이들이 성인 카를로 아쿠티스를 본받아 신앙을 용기 있게 살아가게 하소서.</p>
-                  <p>3. 디지털 문화를 복음화의 도구로 삼아 많은 이들이 주님을 만나게 하소서.</p>
-                  <p>4. 후원자와 모든 참석자들에게 건강과 평화를 주소서.</p>
-                </div>
-
-                <h3>성인 카를로 아쿠티스 전구 기도</h3>
-                <div class="prayer-section">
-                  <p>성인 카를로 아쿠티스여, 성체를 사랑한 당신의 믿음을 본받아<br>
-                     저희도 매일의 삶에서 하느님을 첫자리에 모시고<br>
-                     디지털 시대에 복음을 용기 있게 전하게 하소서.<br>
-                     이 성상 앞에서 드리는 모든 기도를 주님께 전구해 주소서. 아멘.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 다큐멘터리 -->
-        <div id="panel3" class="tab-content">
-          <div class="content-card">
-            <h2>카를로 아쿠티스 다큐멘터리</h2>
-            <div class="video-container">
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/y9Sol3Cw1ug"
-                title="Carlo Acutis Documentary"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-                referrerpolicy="strict-origin-when-cross-origin"
-                loading="lazy">
-              </iframe>
-            </div>
-            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">
-              성인 카를로 아쿠티스의 삶과 신앙을 담은 다큐멘터리입니다. 
-              <a href="https://youtu.be/y9Sol3Cw1ug" target="_blank" rel="noreferrer" style="color: var(--text-primary);">YouTube에서 보기 →</a>
+    <div class="panels">
+      <!-- 안내 -->
+      <article id="p1" class="panel" role="tabpanel" aria-labelledby="t1">
+        <div class="split">
+          <div>
+            <h2>제2주보성인 추대 및 성상 축복</h2>
+            <p class="lead">
+              가톨릭평화방송은 청소년 성인 <strong>카를로 아쿠티스</strong>를 본사의 <strong>제2주보성인</strong>으로 추대하고,
+              그 신심을 본받고자 성상을 세워 축복식을 거행합니다.
+            </p>
+            <p>카를로 아쿠티스 성인은 “성체야말로 나의 하늘로 가는 고속도로”라 고백하며 성체 신심과 디지털 복음화의 모범을 남겼습니다.</p>
+            <dl class="kv">
+              <dt>일시</dt><dd>2025년 9월 16일(화) 오전 11:00</dd>
+              <dt>장소</dt><dd>cpbc 본사 주차장 (서울시 중구 삼일대로 330)</dd>
+              <dt>집전</dt><dd>재단이사장 구요비 주교님 & cpbc 사제단</dd>
+              <dt>참석</dt><dd>재단이사, 미래발전위원, 성상설립 후원인 등</dd>
+            </dl>
+            <p class="muted">※ 현장 진행과 세부 순서는 상황에 따라 일부 조정될 수 있습니다.</p>
+            <p class="card" style="margin-top:10px"><strong>후원 안내</strong><br>
+              성상 설립과 청년 신앙 사도직을 위한 후원에 감사드립니다.
+              <a class="btn" style="margin-left:8px" href="https://mrmweb.hsit.co.kr/v2/Member/SupportOnce.aspx?action=once&server=TMf%200xyArRN3njKxyq0I4A==" target="_blank" rel="noreferrer">후원하기</a>
             </p>
           </div>
+          <div class="card" style="border-radius:14px; overflow:hidden">
+            <img src="acutis-hero.jpg" alt="카를로 아쿠티스/성상 사진" loading="lazy" style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover;filter:saturate(1.05) contrast(1.02)">
+          </div>
         </div>
-      </div>
-    </div>
-  </main>
+      </article>
 
-  <!-- 푸터 -->
-  <footer>
-    © 2025 CPBC Catholic Peace Broadcasting Corporation
-  </footer>
+      <!-- 순서 (전례 형식) -->
+      <article id="p2" class="panel" role="tabpanel" aria-labelledby="t2">
+        <h2>진행 순서(전례 형식)</h2>
+        <ol class="list">
+          <li><strong>입장 및 안내</strong> (해설자)</li>
+          <li><strong>시작 예식</strong> (사제)
+            <ul class="list">
+              <li>성호경</li>
+              <li>인사</li>
+              <li>예식 취지 설명(권고)</li>
+            </ul>
+          </li>
+          <li><strong>말씀 전례</strong>
+            <ul class="list">
+              <li>성경 봉독(예: 요한 6장)</li>
+              <li>잠시 묵상 / (가능 시) 화답송</li>
+            </ul>
+          </li>
+          <li><strong>강론 또는 짧은 권고</strong> (사제)</li>
+          <li><strong>보편 지향 기도</strong> (회중 응답)</li>
+          <li><strong>성상 축복 예식</strong> (사제)
+            <ul class="list">
+              <li>축복 기도</li>
+              <li>성수 예식</li>
+            </ul>
+          </li>
+          <li><strong>(선택) 주님의 기도</strong></li>
+          <li><strong>마침 예식</strong>
+            <ul class="list">
+              <li>마침 축복</li>
+              <li>파견 격려</li>
+            </ul>
+          </li>
+          <li><strong>기념 촬영 및 오찬 안내</strong></li>
+        </ol>
+        <p class="muted">※ 미사 외 예식 형식이며, 실제 집전은 예식서와 주례 사제의 재량을 우선합니다.</p>
+      </article>
+
+      <!-- 전례문(회중 응답) -->
+      <article id="p3" class="panel" role="tabpanel" aria-labelledby="t3">
+        <h2>전례문 (회중 응답 중심)</h2>
+        <p class="lead">※ 사제 주례문은 「축복예식」 성상·성물 축복 본문을 따릅니다. 아래는 회중 응답 및 지향 예시입니다.</p>
+        <hr>
+        <p><strong>사제</strong> 성부와 성자와 성령의 이름으로.</p>
+        <p><strong>회중</strong> 아멘.</p>
+        <p><strong>사제</strong> 우리 주 예수 그리스도의 은총이 여러분과 함께.</p>
+        <p><strong>회중</strong> 또한 사제와 함께.</p>
+        <hr>
+        <h3>보편 지향 기도(예시)</h3>
+        <p class="muted">각 지향 후 응답: <strong>“주님, 저희의 기도를 들어 주소서.”</strong></p>
+        <ol class="list">
+          <li>교회를 이끄시는 교황과 주교단, 모든 사제와 신자들에게 성령의 지혜를 주소서. <br><strong>회중</strong> 주님, 저희의 기도를 들어 주소서.</li>
+          <li>청소년과 젊은이들이 성인 카를로 아쿠티스를 본받아 신앙을 용기 있게 살아가게 하소서. <br><strong>회중</strong> 주님, 저희의 기도를 들어 주소서.</li>
+          <li>디지털 문화를 복음화의 도구로 삼아 많은 이들이 주님을 만나게 하소서. <br><strong>회중</strong> 주님, 저희의 기도를 들어 주소서.</li>
+          <li>성상 설립에 동참한 후원자들과 이 자리에 함께한 모든 이들에게 건강과 평화를 주소서. <br><strong>회중</strong> 주님, 저희의 기도를 들어 주소서.</li>
+        </ol>
+        <hr>
+        <h3>성상 축복 기도(예시)</h3>
+        <p class="muted">※ 반드시 주례 사제가 예식서 본문으로 집전합니다. 아래는 의미를 돕는 보조문입니다.</p>
+        <div class="card">
+          전능하신 하느님, 당신께서는 모든 성인들 안에 놀라운 은총을 드러내시어, 교회가 그들의 모범을 따라 살게 하셨나이다.<br>
+          이 <strong>카를로 아쿠티스 성상</strong>을 바라보는 모든 이에게 성체를 사랑한 성인의 믿음과 열정을 본받는 은혜를 내려 주소서.<br>
+          이 성상을 통하여 저희가 언제나 그리스도를 향하고, 이웃 사랑을 실천하며, 복음을 기쁘게 전하게 하소서.<br>
+          우리 주 그리스도를 통하여 비나이다. <strong>아멘.</strong>
+        </div>
+        <hr>
+        <p><strong>사제</strong> 주님을 찬미합시다. <br><strong>회중</strong> 하느님, 감사합니다.</p>
+      </article>
+
+      <!-- 다큐 -->
+      <article id="p4" class="panel" role="tabpanel" aria-labelledby="t4">
+        <h2>카를로 아쿠티스 다큐 영상</h2>
+        <div class="video" aria-label="다큐 영상">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/y9Sol3Cw1ug"
+            title="Carlo Acutis Documentary"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            referrerpolicy="strict-origin-when-cross-origin"
+            playsinline
+            webkit-playsinline
+            loading="lazy"></iframe>
+        </div>
+        <noscript>
+          <p><a href="https://youtu.be/y9Sol3Cw1ug" target="_blank" rel="noreferrer">영상 보기</a></p>
+        </noscript>
+        <a class="thumbLink" href="https://youtu.be/y9Sol3Cw1ug" target="_blank" rel="noreferrer" aria-label="유튜브에서 영상 보기">
+          <img src="https://i.ytimg.com/vi/y9Sol3Cw1ug/hqdefault.jpg" alt="카를로 아쿠티스 다큐 썸네일">
+          <span><span class="playBtn">
+            <svg viewBox="0 0 68 48" width="52" height="36" aria-hidden="true">
+              <path d="M66.52 7.74a8 8 0 0 0-5.64-5.66C56.56 1 34 1 34 1s-22.56 0-26.88 1.08a8 8 0 0 0-5.64 5.66C0.4 12.06 0.4 24 0.4 24s0 11.94 1.08 16.26c.75 2.62 2.99 4.67 5.64 5.42C11.44 46.8 34 46.8 34 46.8s22.56 0 26.88-1.12a8 8 0 0 0 5.64-5.42C67.6 35.94 67.6 24 67.6 24s0-11.94-1.08-16.26Z" fill="#f00"/>
+              <path d="M45 24 27 14v20z" fill="#fff"/>
+            </svg>
+          </span></span>
+        </a>
+        <p class="muted" style="margin-top:10px">※ iOS에서 로컬 파일로 열면 임베드가 차단될 수 있습니다. 가능하면 HTTPS 주소로 배포해 열어주세요.</p>
+      </article>
+    </div>
+  </section>
+
+  <footer>© 2025 cpbc Catholic Peace Broadcasting Corporation</footer>
+
 </body>
 </html>
