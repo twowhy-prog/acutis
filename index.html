@@ -5,17 +5,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>카를로 아쿠티스 성상 축복식</title>
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#0b0d12">
 <style>
   :root{
     --bg:#0b0d12; --fg:#e9eef7; --muted:#9fb0c8;
     --brand:#5aa0ff; --brand2:#9f7bff;
-    --glass:rgba(255,255,255,.08); --card:rgba(18,22,28,.50); --border:rgba(255,255,255,.18);
+    --glass:rgba(255,255,255,.08); --card:rgba(18,22,28,.55); --border:rgba(255,255,255,.18);
     --shadow:0 12px 36px rgba(0,0,0,.35);
-    --radius:16px; --base:17px;
+    --radius:18px; --base:17px;
   }
   @media (prefers-color-scheme: light){
-    :root{ --bg:#f4f6fb; --fg:#0f172a; --muted:#5b6780; --glass:rgba(255,255,255,.65); --card:rgba(255,255,255,.7); --border:rgba(0,0,0,.08); --shadow:0 16px 36px rgba(88,100,125,.15); }
+    :root{ --bg:#f4f6fb; --fg:#0f172a; --muted:#5b6780; --glass:rgba(255,255,255,.65); --card:rgba(255,255,255,.5); --border:rgba(0,0,0,.08); --shadow:0 16px 36px rgba(88,100,125,.15); }
   }
   *{box-sizing:border-box}
   html,body{height:100%}
@@ -24,55 +23,58 @@
     font:400 var(--base)/1.7 system-ui,-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Segoe UI",Roboto,sans-serif;
     -webkit-text-size-adjust:100%; overflow-x:hidden;
   }
-
-  /* ===== HERO (빈공간 없이 위에 붙임) ===== */
   .hero{
-    position:relative;
-    min-height:54svh;            /* 이전보다 낮춰서 스크롤 위쪽 빈 공간 제거 */
-    display:flex; align-items:flex-end; /* 아래로 붙여 카드가 화면 상단에 더 가깝게 */
-    padding:calc(env(safe-area-inset-top) + 10px) clamp(14px,4vw,24px) 12px;
-    isolation:isolate;
-    background:
-      radial-gradient(1100px 480px at 80% -10%, rgba(90,160,255,.22), transparent),
-      radial-gradient(900px 480px at 10% 120%, rgba(159,123,255,.20), transparent),
-      #090b11;
+    position:relative; min-height:68svh; display:flex; align-items:center; justify-content:center; isolation:isolate;
+    background: radial-gradient(1200px 500px at 80% -10%, rgba(90,160,255,.25), transparent),
+                radial-gradient(900px 500px at 10% 120%, rgba(159,123,255,.22), transparent),
+                #090b11;
   }
   .hero::before{
     content:""; position:absolute; inset:0;
     background:url('acutis-hero.jpg') center/cover no-repeat;
     filter:saturate(1.05) contrast(1.02) brightness(.9);
-    opacity:.40; z-index:-2;
+    opacity:.35; z-index:-2;
   }
   .hero::after{
     content:""; position:absolute; inset:0;
-    background:linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.15) 35%, rgba(0,0,0,.55) 100%);
+    background:linear-gradient(180deg, rgba(0,0,0,.48), rgba(0,0,0,.25) 35%, transparent 60%, rgba(0,0,0,.55));
     z-index:-1;
   }
   .hero-inner{
-    width:min(100%,1000px);
-    margin:0 auto;
-    padding:18px clamp(14px,3.6vw,28px);
-    background:var(--card);
-    border:1px solid var(--border);
-    backdrop-filter:saturate(1.15) blur(12px);
-    border-radius:var(--radius);
-    box-shadow:var(--shadow);
+    width:min(100%,1000px); padding:28px clamp(16px,4vw,36px);
+    background:var(--card); border:1px solid var(--border);
+    backdrop-filter:saturate(1.2) blur(14px);
+    border-radius:18px; box-shadow:var(--shadow);
   }
-  .brandrow{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin:0}
-  .brandrow img{height:38px}
-  h1{margin:.2rem 0 0; font-size:clamp(24px,4.6vw,38px)}
+  .brandrow{display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:8px}
+  .brandrow img{height:42px}
+  h1{margin:.2rem 0 .4rem; font-size:clamp(26px,4.8vw,40px)}
+  .meta{display:flex; gap:10px 18px; flex-wrap:wrap; color:var(--muted); font-weight:600}
+  .cta-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+  .btn{
+    appearance:none; border:0; cursor:pointer; text-decoration:none; user-select:none;
+    padding:12px 18px; border-radius:14px; font-weight:800; letter-spacing:.2px;
+    background:linear-gradient(135deg,var(--brand),var(--brand2)); color:#fff;
+    box-shadow:0 10px 28px rgba(90,160,255,.35);
+    transition:transform .25s ease, filter .25s ease, box-shadow .25s ease;
+  }
+  .btn:hover{ transform:translateY(-1px) }
+  .btn.ghost{
+    background:transparent; color:var(--fg);
+    border:1px solid var(--border);
+    box-shadow:0 8px 20px rgba(0,0,0,.12), inset 0 0 0 1px rgba(255,255,255,.06);
+  }
 
-  /* ===== Tabs ===== */
-  .tabs{margin:14px auto 0; width:min(100%,1000px); padding:0 clamp(14px,4vw,24px) 48px}
+  .tabs{margin:18px auto 0; width:min(100%,1000px); padding:0 clamp(16px,4vw,36px) 56px}
   .tabs input[type=radio]{display:none}
   .tab-labels{display:flex; gap:10px; flex-wrap:wrap}
   .tab-labels label{
-    flex:1 0 auto; text-align:center; cursor:pointer; white-space:nowrap;
+    flex:1 0 auto; text-align:center; cursor:pointer; user-select:none; white-space:nowrap;
     padding:12px 16px; border-radius:999px; font-weight:800;
     background:linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.04));
     border:1px solid var(--border);
     box-shadow:0 6px 18px rgba(0,0,0,.12), inset 0 0 0 1px rgba(255,255,255,.06);
-    color:var(--fg);
+    color:var(--fg); transition:transform .3s, box-shadow .3s;
   }
   #t1:checked ~ .tab-labels label[for=t1],
   #t2:checked ~ .tab-labels label[for=t2],
@@ -82,10 +84,10 @@
     background:linear-gradient(135deg,var(--brand),var(--brand2)); color:#fff; border-color:transparent;
     box-shadow:0 10px 30px rgba(90,160,255,.35);
   }
-  .panels{margin:12px 0 0}
+  .panels{margin:14px 0 0}
   .panel{
-    display:none; background:var(--glass); border:1px solid var(--border); border-radius:16px;
-    box-shadow:0 12px 30px rgba(0,0,0,.2); backdrop-filter:saturate(1.1) blur(12px); padding:16px;
+    display:none; background:var(--glass); border:1px solid var(--border); border-radius:18px;
+    box-shadow:0 12px 30px rgba(0,0,0,.2); backdrop-filter:saturate(1.1) blur(14px); padding:18px;
   }
   #t1:checked ~ .panels #p1,
   #t2:checked ~ .panels #p2,
@@ -104,31 +106,55 @@
   @media (min-width:760px){ .split{ grid-template-columns:1.1fr .9fr } }
   .card{background:var(--glass); border:1px solid var(--border); border-radius:14px; padding:12px}
 
-  /* ===== E-BOOK (PDF.js) ===== */
-  .ebook-wrap{display:flex;flex-direction:column;gap:10px}
-  .ebook-toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
-  .ebook-left,.ebook-right{display:flex;gap:8px;align-items:center}
-  .ebook-btn{appearance:none;border:1px solid var(--border);background:var(--glass);color:var(--fg);padding:8px 12px;border-radius:10px;cursor:pointer;font-weight:700}
-  .ebook-info{color:var(--muted);min-width:120px;text-align:center}
-  .ebook-view{border:1px solid var(--border);border-radius:14px;background:#111;overflow:auto;max-height:80vh}
-  #ebookCanvas{display:block;width:100%;height:auto}
+  /* E-BOOK viewer */
+  .pdf-wrap{display:flex; flex-direction:column; gap:12px}
+  .pdf-frame{
+    width:100%;
+    height:80vh;           /* 화면 높이에 맞춰 보기 좋게 */
+    border:1px solid var(--border);
+    border-radius:14px;
+    background:#000;
+  }
 
-  footer{width:min(100%,1000px); margin:22px auto; padding:0 clamp(14px,4vw,24px); color:var(--muted); font-size:.9em; text-align:center}
+  /* Support callout */
+  .callout{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); 
+    border:1px solid var(--border); border-radius:14px; padding:14px; 
+    display:flex; flex-direction:column; gap:10px;}
+  .callout h3{margin:0 0 4px; font-size:1.05em}
+  .callout p{margin:0}
+  .callout .btn{align-self:flex-start}
+  @media (min-width:560px){
+    .callout{flex-direction:row; align-items:center; justify-content:space-between}
+    .callout .btn{margin-left:12px}
+  }
+
+  .video{position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:14px; border:1px solid var(--border); background:#000}
+  .video iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+  .thumbLink{display:block; position:relative; border:1px solid var(--border); border-radius:14px; overflow:hidden; background:#000; margin-top:12px; text-decoration:none}
+  .thumbLink img{display:block; width:100%; opacity:.92}
+  .thumbLink span{position:absolute; inset:0; display:flex; align-items:center; justify-content:center}
+  .playBtn{width:68px;height:48px;background:rgba(0,0,0,.55);border-radius:10px;display:inline-flex;align-items:center;justify-content:center}
+
+  footer{width:min(100%,1000px); margin:26px auto; padding:0 clamp(16px,4vw,36px); color:var(--muted); font-size:.9em; text-align:center; position:relative}
 </style>
 </head>
 <body>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
       <div class="brandrow">
         <img src="logo.png" alt="cpbc 가톨릭평화방송·평화신문 로고" loading="eager">
         <h1>카를로 아쿠티스 성상 축복식</h1>
       </div>
+      <div class="meta">
+        <div>📅 <strong>2025. 9. 16.(화) 오전 11:00</strong></div>
+        <div>📍 cpbc 본사 주차장 (서울 중구 삼일대로 330)</div>
+        <div>⛪ 집전: 재단이사장 구요비 주교님 & cpbc 사제단</div>
+      </div>
+
     </div>
   </section>
 
-  <!-- TABS -->
   <section class="tabs" aria-label="내용 탭">
     <input checked id="t1" name="tabs" type="radio">
     <input id="t2" name="tabs" type="radio">
@@ -145,33 +171,60 @@
     </div>
 
     <div class="panels">
-      <!-- 안내 -->
       <article id="p1" class="panel" role="tabpanel" aria-labelledby="t1">
         <div class="split">
           <div>
             <h2>제2주보성인 추대 및 성상 축복</h2>
-            <p class="lead">가톨릭평화방송은 청소년 성인 <strong>카를로 아쿠티스</strong>를 본사의 <strong>제2주보성인</strong>으로 추대하고, 그 신심을 본받고자 성상을 세워 축복식을 거행합니다.</p>
+            <p class="lead">
+              가톨릭평화방송은 청소년 성인 <strong>카를로 아쿠티스</strong>를 본사의 <strong>제2주보성인</strong>으로 추대하고,
+              그 신심을 본받고자 성상을 세워 축복식을 거행합니다.
+            </p>
+            <p>카를로 아쿠티스 성인은 "성체야말로 나의 하늘로 가는 고속도로"라 고백하며 성체 신심과 디지털 복음화의 모범을 남겼습니다.</p>
             <dl class="kv">
               <dt>일시</dt><dd>2025년 9월 16일(화) 오전 11:00</dd>
               <dt>장소</dt><dd>cpbc 본사 주차장 (서울시 중구 삼일대로 330)</dd>
               <dt>집전</dt><dd>재단이사장 구요비 주교님 & cpbc 사제단</dd>
               <dt>참석</dt><dd>재단이사, 미래발전위원, 성상설립 후원인 등</dd>
             </dl>
+            <div class="callout" style="margin-top:10px">
+              <div>
+                <h3>후원 안내</h3>
+                <p>성상 설립을 위해 보내주신 후원과 사랑에 진심으로 감사드리며, 앞으로도 변함없는 기도와 후원으로 함께해 주시기를 부탁드립니다.</p>
+              </div>
+              <a class="btn" href="https://mrmweb.hsit.co.kr/v2/Member/SupportOnce.aspx?action=once&server=TMf%200xyArRN3njKxyq0I4A==" target="_blank" rel="noreferrer">후원하기</a>
+            </div>
           </div>
-          <div class="card" style="border-radius:14px; overflow:hidden">
-            <img src="acutis-hero.jpg" alt="카를로 아쿠티스/성상 사진" loading="lazy" style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover;filter:saturate(1.05) contrast(1.02)">
+          <div class="card" style="border-radius:14px; overflow:hidden; position:relative">
+            <div class="slideshow-container">
+              <div class="slide fade active">
+                <img src="1.jpg" alt="카를로 아쿠티스 사진 1" loading="lazy" style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover;filter:saturate(1.05) contrast(1.02)">
+              </div>
+              <div class="slide fade">
+                <img src="2.jpg" alt="카를로 아쿠티스 사진 2" loading="lazy" style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover;filter:saturate(1.05) contrast(1.02)">
+              </div>
+              <div class="slide fade">
+                <img src="3.jpg" alt="카를로 아쿠티스 사진 3" loading="lazy" style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover;filter:saturate(1.05) contrast(1.02)">
+              </div>
+              <div class="slide fade">
+                <img src="4.jpg" alt="카를로 아쿠티스 사진 4" loading="lazy" style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover;filter:saturate(1.05) contrast(1.02)">
+              </div>
+              <div class="slide fade">
+                <img src="5.jpg" alt="카를로 아쿠티스 사진 5" loading="lazy" style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover;filter:saturate(1.05) contrast(1.02)">
+              </div>
+            </div>
           </div>
         </div>
       </article>
 
-      <!-- 순서 -->
       <article id="p2" class="panel" role="tabpanel" aria-labelledby="t2">
         <h2>진행 순서(전례 형식)</h2>
         <ol class="list">
           <li><strong>입장 및 안내</strong> (해설자)</li>
           <li><strong>시작 예식</strong> (사제)
             <ul class="list">
-              <li>성호경</li><li>인사</li><li>예식 취지 설명(권고)</li>
+              <li>성호경</li>
+              <li>인사</li>
+              <li>예식 취지 설명(권고)</li>
             </ul>
           </li>
           <li><strong>말씀 전례</strong>
@@ -183,36 +236,52 @@
           <li><strong>강론 또는 짧은 권고</strong> (사제)</li>
           <li><strong>보편 지향 기도</strong> (◎ 응답)</li>
           <li><strong>성상 축복 예식</strong> (사제)
-            <ul class="list"><li>축복 기도</li><li>성수 예식</li></ul>
+            <ul class="list">
+              <li>축복 기도</li>
+              <li>성수 예식</li>
+            </ul>
           </li>
           <li><strong>(선택) 주님의 기도</strong></li>
           <li><strong>마침 예식</strong>
-            <ul class="list"><li>마침 축복</li><li>파견 격려</li></ul>
+            <ul class="list">
+              <li>마침 축복</li>
+              <li>파견 격려</li>
+            </ul>
           </li>
+          <li><strong>기념 촬영</strong></li>
         </ol>
         <p class="muted">※ 미사 외 예식 형식이며, 실제 집전은 예식서와 주례 사제의 재량을 우선합니다.</p>
       </article>
 
-      <!-- 전례문 -->
       <article id="p3" class="panel" role="tabpanel" aria-labelledby="t3">
         <h2>전례문 (◎ 응답 중심)</h2>
         <p class="lead">※ 사제 주례문은 「축복예식」 성상·성물 축복 본문을 따릅니다. 아래는 ◎ 응답 및 지향 예시입니다.</p>
         <hr>
-        <p><strong> ╬</strong> 성부와 성자와 성령의 이름으로. <strong>◎</strong> 아멘.</p>
-        <p><strong> ╬</strong> 우리 주 예수 그리스도의 은총과 하느님의 사랑과 성령의 친교가 여러분 모두와 함께 <strong>◎</strong> 또한 사제와 함께.</p>
+        <p><strong> ╬</strong> 성부와 성자와 성령의 이름으로.</p>
+        <p><strong>◎</strong> 아멘.</p>
+        <p><strong> ╬</strong> 우리 주 예수 그리스도의 은총과 하느님의 사랑과 성령의 친교가 여러분 모두와 함께</p>
+        <p><strong>◎</strong> 또한 사제와 함께.</p>
         <hr>
         <h3>보편 지향 기도(예시)</h3>
+        <p class="muted">각 지향 후 응답: <strong>"주님, 저희의 기도를 들어 주소서."</strong></p>
         <ol class="list">
-          <li>교황과 주교단, 모든 사제와 신자들에게 성령의 지혜를 주소서. <strong>◎</strong> 주님, 저희의 기도를 들어 주소서.</li>
-          <li>청소년과 젊은이들이 성인 카를로 아쿠티스를 본받아 신앙을 용기 있게 살아가게 하소서. <strong>◎</strong> 주님, 저희의 기도를 들어 주소서.</li>
-          <li>디지털 문화를 복음화의 도구로 삼아 많은 이들이 주님을 만나게 하소서. <strong>◎</strong> 주님, 저희의 기도를 들어 주소서.</li>
-          <li>성상 설립에 동참한 후원자들과 이 자리에 함께한 모든 이들에게 건강과 평화를 주소서. <strong>◎</strong> 주님, 저희의 기도를 들어 주소서.</li>
+          <li>교황과 주교단, 모든 사제와 신자들에게 성령의 지혜를 주소서. <br><strong>◎</strong> 주님, 저희의 기도를 들어 주소서.</li>
+          <li>청소년과 젊은이들이 성인 카를로 아쿠티스를 본받아 신앙을 용기 있게 살아가게 하소서. <br><strong>◎</strong> 주님, 저희의 기도를 들어 주소서.</li>
+          <li>디지털 문화를 복음화의 도구로 삼아 많은 이들이 주님을 만나게 하소서. <br><strong>◎</strong> 주님, 저희의 기도를 들어 주소서.</li>
+          <li>성상 설립에 동참한 후원자들과 이 자리에 함께한 모든 이들에게 건강과 평화를 주소서. <br><strong>◎</strong> 주님, 저희의 기도를 들어 주소서.</li>
         </ol>
         <hr>
-        <p><strong> ╬</strong> 주님을 찬미합시다. <strong>◎</strong> 하느님, 감사합니다.</p>
+        <h3>성상 축복 기도(예시)</h3>
+        <div class="card">
+          전능하신 하느님, 당신께서는 모든 성인들 안에 놀라운 은총을 드러내시어, 교회가 그들의 모범을 따라 살게 하셨나이다.<br>
+          이 <strong>카를로 아쿠티스 성상</strong>을 바라보는 모든 이에게 성체를 사랑한 성인의 믿음과 열정을 본받는 은혜를 내려 주소서.<br>
+          이 성상을 통하여 저희가 언제나 그리스도를 향하고, 이웃 사랑을 실천하며, 복음을 기쁘게 전하게 하소서.<br>
+          우리 주 그리스도를 통하여 비나이다. <strong>아멘.</strong>
+        </div>
+        <hr>
+        <p><strong> ╬</strong> 주님을 찬미합시다. <br><strong>◎</strong> 하느님, 감사합니다.</p>
       </article>
 
-      <!-- 영상 -->
       <article id="p4" class="panel" role="tabpanel" aria-labelledby="t4">
         <h2>카를로 아쿠티스 다큐 영상</h2>
         <div class="video" aria-label="다큐 영상">
@@ -226,31 +295,33 @@
             webkit-playsinline
             loading="lazy"></iframe>
         </div>
+        <noscript>
+          <p><a href="https://youtu.be/y9Sol3Cw1ug" target="_blank" rel="noreferrer">영상 보기</a></p>
+        </noscript>
+        <a class="thumbLink" href="https://youtu.be/y9Sol3Cw1ug" target="_blank" rel="noreferrer" aria-label="유튜브에서 영상 보기">
+          <img src="https://i.ytimg.com/vi/y9Sol3Cw1ug/hqdefault.jpg" alt="카를로 아쿠티스 다큐 썸네일">
+          <span><span class="playBtn">
+            <svg viewBox="0 0 68 48" width="52" height="36" aria-hidden="true">
+              <path d="M66.52 7.74a8 8 0 0 0-5.64-5.66C56.56 1 34 1 34 1s-22.56 0-26.88 1.08a8 8 0 0 0-5.64 5.66C0.4 12.06 0.4 24 0.4 24s0 11.94 1.08 16.26c.75 2.62 2.99 4.67 5.64 5.42C11.44 46.8 34 46.8 34 46.8s22.56 0 26.88-1.12a8 8 0 0 0 5.64-5.42C67.6 35.94 67.6 24 67.6 24s0-11.94-1.08-16.26Z" fill="#f00"/>
+              <path d="M45 24 27 14v20z" fill="#fff"/>
+            </svg>
+          </span></span>
+        </a>
       </article>
 
-      <!-- E-BOOK -->
+      <!-- E-BOOK 탭 -->
       <article id="p5" class="panel" role="tabpanel" aria-labelledby="t5">
         <h2>E-BOOK: 카를로 아쿠티스</h2>
-
-        <div class="ebook-wrap">
-          <div class="ebook-toolbar">
-            <div class="ebook-left">
-              <button class="ebook-btn" id="prevBtn">◀ 이전</button>
-              <button class="ebook-btn" id="nextBtn">다음 ▶</button>
-              <div class="ebook-info"><span id="pageNum">1</span> / <span id="pageCount">–</span></div>
-            </div>
-            <div class="ebook-right">
-              <button class="ebook-btn" id="fitBtn">폭 맞춤</button>
-              <button class="ebook-btn" id="zoomOutBtn">－</button>
-              <button class="ebook-btn" id="zoomInBtn">＋</button>
-              <a class="ebook-btn" href="assets/book.pdf" target="_blank" rel="noreferrer">새 창에서 열기</a>
-            </div>
+        <div class="pdf-wrap">
+          <iframe
+            class="pdf-frame"
+            src="assets/book.pdf#view=FitH&pagemode=thumbs"
+            title="카를로 아쿠티스 E-BOOK (PDF)"
+          ></iframe>
+          <div>
+            <a class="btn ghost" href="assets/book.pdf" target="_blank" rel="noreferrer">새 창에서 열기</a>
           </div>
-
-          <div class="ebook-view" id="ebookView">
-            <canvas id="ebookCanvas" aria-label="E-BOOK 페이지"></canvas>
-          </div>
-          <p class="muted">※ 보기가 안 보이면 “새 창에서 열기”를 사용하세요. (일부 모바일 브라우저 제한)</p>
+          <p class="muted">※ PDF가 보이지 않으면 위의 "새 창에서 열기"를 사용하세요. (일부 모바일 브라우저는 내장 PDF 뷰어가 제한될 수 있습니다.)</p>
         </div>
       </article>
     </div>
@@ -258,87 +329,5 @@
 
   <footer>© 2025 cpbc Catholic Peace Broadcasting Corporation</footer>
 
-  <!-- PDF.js (CDN) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.5.136/pdf.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script>
-    pdfjsLib.GlobalWorkerOptions.workerSrc =
-      "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.5.136/pdf.worker.min.js";
-
-    (function(){
-      const url = "assets/book.pdf";
-      const canvas = document.getElementById("ebookCanvas");
-      const ctx = canvas.getContext("2d");
-      const view = document.getElementById("ebookView");
-
-      const pageNumEl = document.getElementById("pageNum");
-      const pageCountEl = document.getElementById("pageCount");
-
-      const prevBtn = document.getElementById("prevBtn");
-      const nextBtn = document.getElementById("nextBtn");
-      const zoomInBtn = document.getElementById("zoomInBtn");
-      const zoomOutBtn = document.getElementById("zoomOutBtn");
-      const fitBtn = document.getElementById("fitBtn");
-
-      let pdfDoc = null;
-      let pageNum = 1;
-      let scale = 1;
-      let fitToWidth = true;
-      let rendering = false, pending = null;
-
-      function computeFitScale(page){
-        const unscaled = page.getViewport({ scale: 1 });
-        const padding = 24;
-        const target = view.clientWidth - padding;
-        return Math.max(0.2, target / unscaled.width);
-      }
-
-      function renderPage(num){
-        rendering = true;
-        pdfDoc.getPage(num).then(page => {
-          const targetScale = fitToWidth ? computeFitScale(page) : scale;
-          const viewport = page.getViewport({ scale: targetScale * window.devicePixelRatio });
-
-          canvas.width = viewport.width;
-          canvas.height = viewport.height;
-          canvas.style.width = (viewport.width / window.devicePixelRatio) + "px";
-          canvas.style.height = (viewport.height / window.devicePixelRatio) + "px";
-
-          page.render({ canvasContext: ctx, viewport }).promise.then(()=>{
-            rendering = false;
-            pageNumEl.textContent = num;
-            if (pending !== null){ renderPage(pending); pending = null; }
-          });
-        });
-      }
-      function queueRender(num){ if (rendering) pending = num; else renderPage(num); }
-      function showPage(num){ if (num<1 || num>pdfDoc.numPages) return; pageNum = num; queueRender(num); }
-
-      prevBtn.addEventListener("click", ()=> showPage(pageNum-1));
-      nextBtn.addEventListener("click", ()=> showPage(pageNum+1));
-      zoomInBtn.addEventListener("click", ()=>{ fitToWidth=false; scale=Math.min(5, scale*1.2); queueRender(pageNum); });
-      zoomOutBtn.addEventListener("click", ()=>{ fitToWidth=false; scale=Math.max(0.2, scale/1.2); queueRender(pageNum); });
-      fitBtn.addEventListener("click", ()=>{ fitToWidth=true; queueRender(pageNum); });
-      window.addEventListener("resize", ()=>{ if (fitToWidth) queueRender(pageNum); });
-
-      // 모바일 스와이프
-      let startX=null;
-      view.addEventListener("touchstart", e=>{ startX = e.changedTouches[0].clientX; }, {passive:true});
-      view.addEventListener("touchend", e=>{
-        if(startX===null) return;
-        const dx = e.changedTouches[0].clientX - startX;
-        if(Math.abs(dx)>50){ if(dx<0) showPage(pageNum+1); else showPage(pageNum-1); }
-        startX=null;
-      }, {passive:true});
-
-      pdfjsLib.getDocument(url).promise.then(doc=>{
-        pdfDoc = doc;
-        pageCountEl.textContent = doc.numPages;
-        showPage(1);
-      }).catch(err=>{
-        console.error(err);
-        view.innerHTML = '<div style="padding:16px" class="muted">PDF를 불러오지 못했습니다. <a href="assets/book.pdf" target="_blank" rel="noreferrer">새 창에서 열기</a></div>';
-      });
-    })();
-  </script>
 </body>
 </html>
