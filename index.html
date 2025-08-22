@@ -146,12 +146,6 @@
         <img src="logo.png" alt="cpbc 가톨릭평화방송·평화신문 로고" loading="eager">
         <h1>카를로 아쿠티스 성상 축복식</h1>
       </div>
-      <div class="meta">
-        <div>📅 <strong>2025. 9. 16.(화) 오전 11:00</strong></div>
-        <div>📍 cpbc 본사 주차장 (서울 중구 삼일대로 330)</div>
-        <div>⛪ 집전: 재단이사장 구요비 주교님 & cpbc 사제단</div>
-      </div>
-
     </div>
   </section>
 
@@ -329,5 +323,19 @@
 
   <footer>© 2025 cpbc Catholic Peace Broadcasting Corporation</footer>
 
+<script>
+  let slideIndex = 0;
+  showSlides();
+
+  function showSlides() {
+    const slides = document.querySelectorAll(".slideshow-container .slide");
+    slides.forEach(slide => slide.style.display = "none");
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1 }
+    slides[slideIndex - 1].style.display = "block";
+    setTimeout(showSlides, 3000); // 3초마다 전환
+  }
+</script>
+  
 </body>
 </html>
