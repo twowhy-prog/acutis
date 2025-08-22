@@ -24,14 +24,14 @@
     -webkit-text-size-adjust:100%; overflow-x:hidden;
   }
   .hero{
-    position:relative; min-height:68svh; display:flex; align-items:center; justify-content:center; isolation:isolate;
+    position:relative; min-height:45svh; display:flex; align-items:center; justify-content:center; isolation:isolate;
     background: radial-gradient(1200px 500px at 80% -10%, rgba(90,160,255,.25), transparent),
                 radial-gradient(900px 500px at 10% 120%, rgba(159,123,255,.22), transparent),
                 #090b11;
   }
   .hero::before{
     content:""; position:absolute; inset:0;
-    background:url('acutis-hero.jpg') center/cover no-repeat;
+    background:url('acutis-hero.jpg') center top/cover no-repeat;
     filter:saturate(1.05) contrast(1.02) brightness(.9);
     opacity:.35; z-index:-2;
   }
@@ -41,7 +41,7 @@
     z-index:-1;
   }
   .hero-inner{
-    width:min(100%,1000px); padding:28px clamp(16px,4vw,36px);
+    width:min(100%,1000px); padding:16px clamp(12px,3vw,24px);
     background:var(--card); border:1px solid var(--border);
     backdrop-filter:saturate(1.2) blur(14px);
     border-radius:18px; box-shadow:var(--shadow);
