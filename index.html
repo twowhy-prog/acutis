@@ -136,6 +136,28 @@
   .playBtn{width:68px;height:48px;background:rgba(0,0,0,.55);border-radius:10px;display:inline-flex;align-items:center;justify-content:center}
 
   footer{width:min(100%,1000px); margin:26px auto; padding:0 clamp(16px,4vw,36px); color:var(--muted); font-size:.9em; text-align:center; position:relative}
+
+  /* 슬라이드 부드러운 페이드 효과 */
+  .slideshow-container {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .slide {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+  }
+
+  .slide.active {
+    opacity: 1;
+    position: relative;
+  }
+
+
 </style>
 </head>
 <body>
