@@ -347,17 +347,33 @@
 
 <script>
   let slideIndex = 0;
-  showSlides();
+  const slides = document.querySelectorAll(".slideshow-container .slide");
 
-  function showSlides() {
-    const slides = document.querySelectorAll(".slideshow-container .slide");
-    slides.forEach(slide => slide.style.display = "none");
-    slideIndex++;
-    if (slideIndex > slides.length) { slideIndex = 1 }
-    slides[slideIndex - 1].style.display = "block";
-    setTimeout(showSlides, 3000); // 3초마다 전환
+  // 안전장치: 슬라이드가 없으면 종료
+  if (slides.length) {
+    // 시작 시 첫 장만 활성화
+    slides.forEach(s => s.classList.remove("active"));
+    slides[0].classList.add("active");
+
+    // 자동 재생 시작
+    setTimeout(nextSlide, 4000); // 4초 간격 (원하면 3000으로)
+  }
+
+  function nextSlide() {
+    // 현재 활성 슬라이드 해제
+    slides[slideIndex].classList.remove("active");
+
+    // 다음 인덱스로
+    slideIndex = (slideIndex + 1) % slides.length;
+
+    // 다음 슬라이드 활성화
+    slides[slideIndex].classList.add("active");
+
+    // 반복
+    setTimeout(nextSlide, 4000);
   }
 </script>
+
   
 </body>
 </html>
