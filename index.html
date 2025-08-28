@@ -106,9 +106,17 @@
   @media (min-width:760px){ .split{ grid-template-columns:1.1fr .9fr } }
   .card{background:var(--glass); border:1px solid var(--border); border-radius:14px; padding:12px}
 
+  /* E-BOOK viewer */
   .pdf-wrap{display:flex; flex-direction:column; gap:12px}
-  .pdf-frame{width:100%; height:80vh; border:1px solid var(--border); border-radius:14px; background:#000}
+  .pdf-frame{
+    width:100%;
+    height:80vh;
+    border:1px solid var(--border);
+    border-radius:14px;
+    background:#000;
+  }
 
+  /* Support callout */
   .callout{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); 
     border:1px solid var(--border); border-radius:14px; padding:14px; 
     display:flex; flex-direction:column; gap:10px;}
@@ -129,6 +137,7 @@
 
   footer{width:min(100%,1000px); margin:26px auto; padding:0 clamp(16px,4vw,36px); color:var(--muted); font-size:.9em; text-align:center; position:relative}
 
+  /* 슬라이드 부드러운 페이드 효과 */
   .slideshow-container { position: relative; max-width: 100%; overflow: hidden; }
   .slide { position: absolute; top: 0; left: 0; width: 100%; opacity: 0; transition: opacity 1.2s ease-in-out; }
   .slide.active { opacity: 1; position: relative; }
@@ -161,85 +170,227 @@
     </div>
 
     <div class="panels">
+      <!-- 행사 안내 -->
       <article id="p1" class="panel" role="tabpanel" aria-labelledby="t1">
-        <!-- (생략) 행사 안내 기존 내용 유지 -->
+        <div class="split">
+          <div>
+            <h2>제2주보성인 추대 및 성상 축복</h2>
+            <p class="lead">
+              가톨릭평화방송은 청소년 성인 <strong>카를로 아쿠티스</strong>를 본사의 <strong>제2주보성인</strong>으로 추대하고,
+              그 신심을 본받고자 성상을 세워 축복식을 거행합니다.
+            </p>
+            <p>카를로 아쿠티스 성인은 "성체야말로 나의 하늘로 가는 고속도로"라 고백하며 성체 신심과 디지털 복음화의 모범을 남겼습니다.</p>
+            <dl class="kv">
+              <dt>일시</dt><dd>2025년 9월 16일(화) 오전 10:30</dd>
+              <dt>장소</dt><dd>cpbc 본사 (서울시 중구 삼일대로 330)</dd>
+              <dt>집전</dt><dd>재단이사장 구요비 주교님 & cpbc 사제단</dd>
+              <dt>참석</dt><dd>재단이사, 미래발전위원, 성상설립 후원인 등</dd>
+            </dl>
+            <div class="callout" style="margin-top:10px">
+              <div>
+                <h3>후원 안내</h3>
+                <p>성상 설립을 위해 보내주신 후원과 사랑에 진심으로 감사드리며, 앞으로도 변함없는 기도와 후원으로 함께해 주시기를 부탁드립니다.</p>
+              </div>
+              <a class="btn" href="https://mrmweb.hsit.co.kr/v2/Member/SupportOnce.aspx?action=once&server=TMf%200xyArRN3njKxyq0I4A==" target="_blank" rel="noreferrer">후원하기</a>
+            </div>
+          </div>
+          <div class="card" style="border-radius:14px; overflow:hidden; position:relative">
+            <div class="slideshow-container">
+              <div class="slide fade active">
+                <img src="1.jpg" alt="카를로 아쿠티스 사진 1" loading="lazy" style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover;filter:saturate(1.05) contrast(1.02)">
+              </div>
+              <div class="slide fade">
+                <img src="2.jpg" alt="카를로 아쿠티스 사진 2" loading="lazy" style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover;filter:saturate(1.05) contrast(1.02)">
+              </div>
+              <div class="slide fade">
+                <img src="3.jpg" alt="카를로 아쿠티스 사진 3" loading="lazy" style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover;filter:saturate(1.05) contrast(1.02)">
+              </div>
+              <div class="slide fade">
+                <img src="4.jpg" alt="카를로 아쿠티스 사진 4" loading="lazy" style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover;filter:saturate(1.05) contrast(1.02)">
+              </div>
+              <div class="slide fade">
+                <img src="5.jpg" alt="카를로 아쿠티스 사진 5" loading="lazy" style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover;filter:saturate(1.05) contrast(1.02)">
+              </div>
+            </div>
+          </div>
+        </div>
       </article>
 
+      <!-- 진행 순서 -->
       <article id="p2" class="panel" role="tabpanel" aria-labelledby="t2">
-        <!-- (생략) 진행 순서 기존 내용 유지 -->
+        <h2>진행 순서</h2>
+
+        <h3>10:30 ~ 11:00 <span class="muted">역사전시실 / 바오로홀</span></h3>
+        <ul class="list">
+          <li><strong>다큐 상영</strong></li>
+          <li>행사소개 및 안내</li>
+          <li>다큐 「카를로 아쿠티스」 상영</li>
+        </ul>
+
+        <h3>11:00 ~ 11:40 <span class="muted">주차장 성상 주변</span></h3>
+        <ul class="list">
+          <li><strong>성상 축복식</strong>
+            <ul class="list">
+              <li>시작기도</li>
+              <li>축복식</li>
+            </ul>
+          </li>
+          <li><strong>축하식</strong>
+            <ul class="list">
+              <li>내/외빈 소개</li>
+              <li>사업 경과보고</li>
+              <li>사장 신부님 인사</li>
+              <li>재단이사장 주교님 인사</li>
+              <li>기념사진 촬영</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h3>11:40 ~ 13:30</h3>
+        <ul class="list">
+          <li><strong>오찬행사</strong></li>
+          <li>외빈 식사장소: 대회의실, 임원실</li>
+        </ul>
+
+        <p class="muted">※ 일정과 장소는 현장 사정에 따라 일부 변경될 수 있습니다.</p>
       </article>
 
-      <!-- ▼▼▼ 여기부터: PDF 기반으로 교체된 전례문(응답) ▼▼▼ -->
+      <!-- 전례문(응답) — PDF 반영 -->
       <article id="p3" class="panel" role="tabpanel" aria-labelledby="t3">
         <h2>전례문 (◎ 응답 중심)</h2>
-        <p class="lead">※ 본 전례문은 「성인들의 성화상 축복 예식」을 따릅니다. 아래는 회중 ◎ 응답 부분과 기도문 요지입니다.</p>
+        <p class="lead">※ 「성인들의 성화상 축복 예식」 본문을 따릅니다. 아래는 회중 ◎ 응답을 중심으로 정리한 버전입니다.</p>
         <hr>
 
         <h3>시작 예식</h3>
-        <p><strong>╬</strong> 성부와 성자와 성령의 이름으로.</p>
+        <p><strong>✠</strong> 성부와 성자와 성령의 이름으로.</p>
         <p><strong>◎</strong> 아멘.</p>
-        <p><strong>╬</strong> 평화가 여러분과 함께.</p>
+        <p><strong>✠</strong> 평화가 여러분과 함께.</p>
         <p><strong>◎</strong> 또한 사제의 영과 함께.</p>
 
         <div class="card">
-          <p><em>집전자 설명</em> — “사랑하는 형제자매 여러분, 우리는 아쿠티스 성인의 성상을 마련하여 공적인 공경의 대상으로 모시고 하느님께 찬미를 드리는 예식을 거행하려고 여기 모였습니다.… 정성을 다하여 이 예식에 참여합시다.”</p>
+          <p><em>집전자 설명</em></p>
+          <p>
+            † 사랑하는 형제 여러분, 
+              우리는 아쿠티스 성인의 성상을 마련하여 
+              공적인 공경의 대상으로 모시고 
+              하느님께 찬미를 드리는 예식을 거행하려고 여기 모였습니다.
+              우리는 먼저 이 예식의 뜻을 올바로 알아듣도록 마음의 준비를 갖추어야 하겠습니다. 
+              어머니인 교회는 성인들의 성상을 신자들이 공경하도록 모시고, 
+              그리스도를 충실히 따른 성인들의 모상을 바라보며 
+              우리가 미래의 도성을 찾아 어떤 길을 걸어가야 
+              안전하게 그리스도와 만나 완전히 일치하게 되는지 배우기를 바랍니다. 
+              성인들은 예수 그리스도의 벗이고 공동 상속자이며, 
+              우리의 형제이고 훌륭한 은인입니다. 
+              그들은 우리를 사랑하고 우리를 도와주며, 
+              우리를 위하여 열심히 전구하고 놀라운 방법으로 우리와 친교를 이룹니다. 
+              그러므로 우리는 정성을 다하여 이 예식에 참여합시다.
+          </p>
         </div>
 
         <hr>
         <h3>말씀 전례</h3>
-        <p><strong>독서</strong> — 1요한 5,1-5: “세상을 이긴 그 승리는 바로 우리 믿음의 승리입니다.”</p>
-        <p><strong>●</strong> 주님의 말씀입니다. <strong>◎</strong> 하느님 감사합니다.</p>
+        <p class="muted">▪ 독서 1요한 5,1-5 <세상을 이긴 그 승리는 바로 우리 믿음의 승리입니다.>
 
-        <p><strong>화답송</strong> — 시편 15(14),2-3.4-5</p>
-        <ul class="list">
-          <li><strong>◎</strong> <em>후렴</em>: 주님, 의로운 이는 당신의 거룩한 산에서 지내리이다.</li>
-          <li>흠 없이 걸어가고 의로운 일을 하며 마음속 진실을 말하는 이…</li>
-          <li>…이 모든 것 행하는 그 사람, 영원토록 흔들림 없으리라.</li>
-        </ul>
+          사랑하는 여러분, 예수님께서 그리스도이심을 믿는 사람은 모두 하느님에게서 태어났습니다. 
+          아버지를 사랑하는 사람은 모두 그 자녀도 사랑합니다. 우리가 하느님을 사랑하고 그분의 계명을 실천하면, 
+          그로써 우리가 하느님의 자녀들을 사랑한다는 것을 알게 됩니다. 하느님을 사랑하는 것은 바로 그분의 계명을 지키는 것입니다. 
+          그리고 그분의 계명은 힘겹지 않습니다. 하느님에게서 태어난 사람은 모두 세상을 이기기 때문입니다. 
+          세상을 이긴 그 승리는 바로 우리 믿음의 승리입니다. 세상을 이기는 사람은 누구입니까? 예수님께서 하느님의 아드님이심을 믿는 사람이 아닙니까?
+
+          ● 주님의 말씀입니다.
+          ◎ 하느님 감사합니다.</p>
+
+        ▪ 화답송 < 시편 15(14),2-3,4-5 >
+          ◎ 주님, 의로운 이는 당신의 거룩한 산에서 지내리이다.
+          ○ 흠 없이 걸어가고 의로운 일을 하며
+          마음속 진실을 말하는 이, 함부로 혀를 놀리지 않고
+          친구를 해치지 않으며 이웃을 모욕하지 않는 이라네. ◎
+          ○ 그는 악인을 업신여기지만 주님을 경외하는 이들은 존중한다네.
+          손해 보는 맹세라도 바꾸지 않고 이자를 받으려 돈놀이 않으며
+          죄 없는 이를 해치는 뇌물 받지 않는다네.
+          이 모든 것 행하는 그 사람 영원토록 흔들림 없으리라. ◎
 
         <hr>
         <h3>청원기도</h3>
-        <p><em>인도:</em> 형제자매 여러분, 성인들이 성자의 모습을 닮게 하시고 성령의 힘으로 교회를 거룩하게 하시는 하느님 아버지께 간절히 기도합시다. <br>
-        <strong>◎</strong> 주님, 저희의 기도를 들어 주소서.</p>
+        <p>† 형제자매 여러분, 성인들이 성자의 모습을 닮게 하시고 성령의 힘으로 교회를 끊임없이 거룩하게 하시는 하느님 아버지께 간절히 기도합시다. <strong>◎ 주님, 저희의 기도를 들어주소서.
+</strong></p>
         <ol class="list">
-          <li><strong>아쿠티스 성인을 위하여</strong> — 성인의 모범을 본받게 하소서.</li>
-          <li><strong>교회를 위하여</strong> — 교황과 주교단, 성직자와 신자들에게 성령의 지혜를 주소서.</li>
-          <li><strong>cpbc를 위하여</strong> — 복음 선포의 사명을 성실히 수행하게 하소서.</li>
-          <li><strong>후원자들을 위하여</strong> — 함께한 모든 이에게 건강과 평화를 주소서.</li>
+          <li>1. 아쿠티스 성인을 위하여 <br><strong>◎</strong> 주님, 저희의 기도를 들어 주소서.</li>
+          <li>2. 교회를 위하여 <br><strong>◎</strong> 주님, 저희의 기도를 들어 주소서.</li>
+          <li>3. cpbc를 위하여 <br><strong>◎</strong> 주님, 저희의 기도를 들어 주소서.</li>
+          <li>4. 후원자들을 위하여 <br><strong>◎</strong> 주님, 저희의 기도를 들어 주소서.</li>
         </ol>
 
         <hr>
         <h3>축복기도</h3>
         <div class="card">
-          <p><strong>╬</strong> 모든 은총과 성덕의 샘이신 하느님, 아쿠티스 성인의 이 성상을 마련한 자녀들을 인자로이 굽어보시어, 그리스도의 벗이며 공동 상속자로서 복음의 증인이 되고 하느님 앞에 뛰어난 전구자가 된 아쿠티스 성인을 본받게 하소서. 우리 주 그리스도를 통하여 비나이다. <strong>◎ 아멘.</strong></p>
-          <p><em>(집전자는 성상에 성수를 뿌린다.)</em></p>
+          <p><strong>✠</strong> † 여러 민족들 가운데서도 같은 성령의 힘으로 한데 모이고 같은 성덕으로 부르심을 받은 우리는 한 분이신 하느님 아버지께 간절히 기도 합시다.
+            모두 잠깐 침묵하며 기도한 다음에, 집전자는 팔을 펴 들고 아래의 축복 기도를 바친다.
+            † 모든 은총과 성덕의 샘이신 하느님,
+            아쿠티스 성인의 이 성상을 마련한 자녀들을 인자로이 굽어보시어
+            그리스도의 벗이며 공동 상속자로서 복음의 증인이 되고
+            하느님 앞에 뛰어난 전구자가 된 아쿠티스 성인을 본받게 하소서.
+            우리 주 그리스도를 통하여 비나이다.
+            ◎ 아멘. </p>
+          <p class="muted"><em>(집전자는 성상에 성수를 뿌립니다.)</em></p>
         </div>
 
         <hr>
-        <h3>마침 예식</h3>
-        <p><strong>╬</strong> 주님께서 여러분과 함께. <br><strong>◎</strong> 또한 사제의 영과 함께.</p>
+        <h3>마침 예식과 강복</h3>
+        <ul class="list">
+          <li><strong>✠</strong> 주님께서 여러분과 함께. <strong>◎</strong> 또한 사제의 영과 함께.</li>
+          <li><strong>✠</strong> 성인들의 영광이요 기쁨이신 하느님, 성인들의 보호를 받는 저희에게 영원한 복을 내려 주소서. <strong>◎ 아멘.</strong></li>
+          <li><strong>✠</strong> 하느님, 성인들의 전구로 저희가 현세의 악에서 해방되고 성인들의 거룩한 생활을 본받아 언제나 하느님과 형제들에게 봉사하도록 은총을 내려 주소서. <strong>◎ 아멘.</strong></li>
+          <li><strong>✠</strong> 하느님, 거룩하고 영원한 평화 속에서 자녀들이 하늘의 시민이 된 것을 교회가 기뻐하오니 저희도 모든 성인과 함께 하늘 나라의 기쁨을 누리게 하소서. <strong>◎ 아멘.</strong></li>
+          <li><strong>✠</strong> 전능하신 천주 성부와 <strong>†</strong> 성자와 성령께서는 여기 모인 모든 이에게 강복하소서. <strong>◎ 아멘.</strong></li>
+        </ul>
 
-        <div class="card">
-          <p><em>강복</em></p>
-          <ul class="list">
-            <li><strong>╬</strong> 성인들의 영광이요 기쁨이신 하느님, 성인들의 보호를 받는 저희에게 영원한 복을 내려 주소서. <strong>◎ 아멘.</strong></li>
-            <li><strong>╬</strong> 하느님, 성인들의 전구로 저희가 현세의 악에서 해방되고 성인들의 거룩한 생활을 본받아 언제나 하느님과 형제들에게 봉사하도록 은총을 내려 주소서. <strong>◎ 아멘.</strong></li>
-            <li><strong>╬</strong> 하느님, 거룩하고 영원한 평화 속에서 자녀들이 하늘의 시민이 된 것을 교회가 기뻐하오니, 저희도 모든 성인과 함께 하늘 나라의 기쁨을 누리게 하소서. <strong>◎ 아멘.</strong></li>
-          </ul>
-          <p><strong>╬</strong> 전능하신 천주 성부와 <strong>†</strong> 성자와 성령께서는 여기 모인 모든 이에게 강복하소서. <strong>◎ 아멘.</strong></p>
-        </div>
-
-        <p><strong>╬</strong> 주님을 찬미합시다. <br><strong>◎</strong> 하느님 감사합니다.</p>
+        <p><strong>✠</strong> 주님을 찬미합시다. <br><strong>◎</strong> 하느님 감사합니다.</p>
         <p class="muted"><em>※ 집전자는 성상에 인사 후 퇴장합니다.</em></p>
       </article>
-      <!-- ▲▲▲ 교체 끝 ▲▲▲ -->
 
+      <!-- 다큐 영상 -->
       <article id="p4" class="panel" role="tabpanel" aria-labelledby="t4">
-        <!-- (생략) 다큐 영상 기존 내용 유지 -->
+        <h2>카를로 아쿠티스 다큐 영상</h2>
+        <div class="video" aria-label="다큐 영상">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/y9Sol3Cw1ug"
+            title="Carlo Acutis Documentary"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            referrerpolicy="strict-origin-when-cross-origin"
+            playsinline
+            webkit-playsinline
+            loading="lazy"></iframe>
+        </div>
+        <noscript>
+          <p><a href="https://youtu.be/y9Sol3Cw1ug" target="_blank" rel="noreferrer">영상 보기</a></p>
+        </noscript>
+        <a class="thumbLink" href="https://youtu.be/y9Sol3Cw1ug" target="_blank" rel="noreferrer" aria-label="유튜브에서 영상 보기">
+          <img src="https://i.ytimg.com/vi/y9Sol3Cw1ug/hqdefault.jpg" alt="카를로 아쿠티스 다큐 썸네일">
+          <span><span class="playBtn">
+            <svg viewBox="0 0 68 48" width="52" height="36" aria-hidden="true">
+              <path d="M66.52 7.74a8 8 0 0 0-5.64-5.66C56.56 1 34 1 34 1s-22.56 0-26.88 1.08a8 8 0 0 0-5.64 5.66C0.4 12.06 0.4 24 0.4 24s0 11.94 1.08 16.26c.75 2.62 2.99 4.67 5.64 5.42C11.44 46.8 34 46.8 34 46.8s22.56 0 26.88-1.12a8 8 0 0 0 5.64-5.42C67.6 35.94 67.6 24 67.6 24s0-11.94-1.08-16.26Z" fill="#f00"/>
+              <path d="M45 24 27 14v20z" fill="#fff"/>
+            </svg>
+          </span></span>
+        </a>
       </article>
 
+      <!-- E-BOOK -->
       <article id="p5" class="panel" role="tabpanel" aria-labelledby="t5">
-        <!-- (생략) E-BOOK 기존 내용 유지 -->
+        <h2>E-BOOK: 카를로 아쿠티스</h2>
+        <div class="pdf-wrap">
+          <iframe
+            class="pdf-frame"
+            src="assets/book.pdf#view=FitH&pagemode=thumbs"
+            title="카를로 아쿠티스 E-BOOK (PDF)"
+          ></iframe>
+          <div>
+            <a class="btn ghost" href="assets/book.pdf" target="_blank" rel="noreferrer">새 창에서 열기</a>
+          </div>
+          <p class="muted">※ PDF가 보이지 않으면 위의 "새 창에서 열기"를 사용하세요. (일부 모바일 브라우저는 내장 PDF 뷰어가 제한될 수 있습니다.)</p>
+        </div>
       </article>
     </div>
   </section>
@@ -249,11 +400,13 @@
 <script>
   let slideIndex = 0;
   const slides = document.querySelectorAll(".slideshow-container .slide");
+
   if (slides.length) {
     slides.forEach(s => s.classList.remove("active"));
     slides[0].classList.add("active");
     setTimeout(nextSlide, 4000);
   }
+
   function nextSlide() {
     slides[slideIndex].classList.remove("active");
     slideIndex = (slideIndex + 1) % slides.length;
