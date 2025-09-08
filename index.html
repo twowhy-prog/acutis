@@ -128,8 +128,22 @@
     .callout .btn{margin-left:12px}
   }
 
-  .video{position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:14px; border:1px solid var(--border); background:#000}
-  .video iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+  .video{
+    position:relative;
+    aspect-ratio:16/9; /* 비율 유지 */
+    overflow:hidden;
+    border-radius:14px;
+    border:1px solid var(--border);
+    background:#000;
+  }
+  .video video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    border:0;
+  }
+
   .thumbLink{display:block; position:relative; border:1px solid var(--border); border-radius:14px; overflow:hidden; background:#000; margin-top:12px; text-decoration:none}
   .thumbLink img{display:block; width:100%; opacity:.92}
   .thumbLink span{position:absolute; inset:0; display:flex; align-items:center; justify-content:center}
