@@ -76,11 +76,13 @@
     box-shadow:0 6px 18px rgba(0,0,0,.12), inset 0 0 0 1px rgba(255,255,255,.06);
     color:var(--fg); transition:transform .3s, box-shadow .3s;
   }
+  /* 활성 탭 스타일 */
   #t1:checked ~ .tab-labels label[for=t1],
   #t2:checked ~ .tab-labels label[for=t2],
   #t3:checked ~ .tab-labels label[for=t3],
   #t4:checked ~ .tab-labels label[for=t4],
-  #t5:checked ~ .tab-labels label[for=t5]{
+  #t5:checked ~ .tab-labels label[for=t5],
+  #t6:checked ~ .tab-labels label[for=t6]{
     background:linear-gradient(135deg,var(--brand),var(--brand2)); color:#fff; border-color:transparent;
     box-shadow:0 10px 30px rgba(90,160,255,.35);
   }
@@ -89,11 +91,13 @@
     display:none; background:var(--glass); border:1px solid var(--border); border-radius:18px;
     box-shadow:0 12px 30px rgba(0,0,0,.2); backdrop-filter:saturate(1.1) blur(14px); padding:18px;
   }
+  /* 탭-패널 연결 */
   #t1:checked ~ .panels #p1,
   #t2:checked ~ .panels #p2,
   #t3:checked ~ .panels #p3,
   #t4:checked ~ .panels #p4,
-  #t5:checked ~ .panels #p5{ display:block }
+  #t5:checked ~ .panels #p5,
+  #t6:checked ~ .panels #p6{ display:block }
 
   h2{margin:.2rem 0 .6rem; font-size:clamp(20px,3.6vw,26px)}
   .lead{font-size:1.06em}
@@ -155,6 +159,13 @@
   .slideshow-container { position: relative; max-width: 100%; overflow: hidden; }
   .slide { position: absolute; top: 0; left: 0; width: 100%; opacity: 0; transition: opacity 1.2s ease-in-out; }
   .slide.active { opacity: 1; position: relative; }
+
+  /* 성가 악보 */
+  .score-wrap{display:grid; gap:12px}
+  .score-img{
+    width:100%; height:auto; display:block; border-radius:14px;
+    border:1px solid var(--border); background:#000; object-fit:contain;
+  }
 </style>
 </head>
 <body>
@@ -169,22 +180,25 @@
   </section>
 
   <section class="tabs" aria-label="내용 탭">
+    <!-- 탭 토글: 6개 -->
     <input checked id="t1" name="tabs" type="radio">
     <input id="t2" name="tabs" type="radio">
     <input id="t3" name="tabs" type="radio">
     <input id="t4" name="tabs" type="radio">
     <input id="t5" name="tabs" type="radio">
+    <input id="t6" name="tabs" type="radio">
 
     <div class="tab-labels" role="tablist">
       <label for="t1" role="tab" aria-controls="p1">행사 안내</label>
       <label for="t2" role="tab" aria-controls="p2">진행 순서</label>
-      <label for="t3" role="tab" aria-controls="p3">전례문(응답)</label>
-      <label for="t4" role="tab" aria-controls="p4">다큐 영상</label>
-      <label for="t5" role="tab" aria-controls="p5">E-BOOK</label>
+      <label for="t3" role="tab" aria-controls="p3">성가</label>
+      <label for="t4" role="tab" aria-controls="p4">전례문(응답)</label>
+      <label for="t5" role="tab" aria-controls="p5">다큐 영상</label>
+      <label for="t6" role="tab" aria-controls="p6">E-BOOK</label>
     </div>
 
     <div class="panels">
-      <!-- 행사 안내 -->
+      <!-- p1: 행사 안내 -->
       <article id="p1" class="panel" role="tabpanel" aria-labelledby="t1">
         <div class="split">
           <div>
@@ -197,7 +211,7 @@
             <dl class="kv">
               <dt>일시</dt><dd>2025년 9월 16일(화) 오전 10:30</dd>
               <dt>장소</dt><dd>cpbc 본사 (서울시 중구 삼일대로 330)</dd>
-              <dt>집전</dt><dd>재단이사장 구요비 주교님 & cpbc 사제단</dd>
+              <dt>집전</dt><dd>재단이사장 구요비 주교님 &amp; cpbc 사제단</dd>
               <dt>참석</dt><dd>재단이사, 미래발전위원, 성상설립 후원인 등</dd>
             </dl>
             <div class="callout" style="margin-top:10px">
@@ -230,7 +244,7 @@
         </div>
       </article>
 
-      <!-- 진행 순서 -->
+      <!-- p2: 진행 순서 -->
       <article id="p2" class="panel" role="tabpanel" aria-labelledby="t2">
         <h2>진행 순서</h2>
 
@@ -269,150 +283,168 @@
         <p class="muted">※ 일정과 장소는 현장 사정에 따라 일부 변경될 수 있습니다.</p>
       </article>
 
-      <!-- 전례문(응답) — PDF 반영 -->
-      <article id="p3" class="panel" role="tabpanel" aria-labelledby="t3">
-  <h2>전례문 (◎ 응답 중심)</h2>
-
-  <h3>시작 예식</h3>
-  <p>† 성부와 성자와 성령의 이름으로.<br>
-  <strong>◎</strong> 아멘.</p>
-
-  <p>† 평화가 여러분과 함께.<br>
-  <strong>◎</strong> 또한 사제의 영과 함께.</p>
-
-  <p>
-    † 사랑하는 형제 여러분,<br>
-    우리는 아쿠티스 성인의 성상을 마련하여<br>
-    공적인 공경의 대상으로 모시고<br>
-    하느님께 찬미를 드리는 예식을 거행하려고<br>
-    여기 모였습니다.<br><br>
-
-    우리는 먼저 이 예식의 뜻을 올바로 알아듣도록<br>
-    마음의 준비를 갖추어야 하겠습니다.<br><br>
-
-    어머니인 교회는 성인들의 성상을<br>
-    신자들이 공경하도록 모시고,<br>
-    그리스도를 충실히 따른 성인들의 모상을 바라보며<br>
-    우리가 미래의 도성을 찾아 어떤 길을 걸어가야<br>
-    안전하게 그리스도와 만나 완전히 일치하게 되는지<br>
-    배우기를 바랍니다.<br><br>
-
-    성인들은 예수 그리스도의 벗이고<br>
-    공동 상속자이며, 우리의 형제이고 훌륭한 은인입니다.<br>
-    그들은 우리를 사랑하고 우리를 도와주며,<br>
-    우리를 위하여 열심히 전구하고<br>
-    놀라운 방법으로 우리와 친교를 이룹니다.<br><br>
-
-    그러므로 우리는 정성을 다하여<br>
-    이 예식에 참여합시다.
-  </p>
-
-  <hr>
-  <h3>말씀 전례</h3>
-  <p>▪ 독서 1요한 5,1-5<br>
-  &lt;세상을 이긴 그 승리는 바로 우리 믿음의 승리입니다.&gt;</p>
-
-  <p>
-    사랑하는 여러분,<br>
-    예수님께서 그리스도이심을 믿는 사람은<br>
-    모두 하느님에게서 태어났습니다.… (중략)
-  </p>
-
-  <p>● 주님의 말씀입니다.<br>
-  <strong>◎</strong> 하느님 감사합니다.</p>
-
-  <p>▪ 화답송 &lt; 시편 15(14),2-3,4-5 &gt;</p>
-  <p><strong>◎</strong> 주님, 의로운 이는 당신의 거룩한 산에서 지내리이다.</p>
-
-  <p>
-    ○ 흠 없이 걸어가고 의로운 일을 하며<br>
-    마음속 진실을 말하는 이,<br>
-    함부로 혀를 놀리지 않고<br>
-    친구를 해치지 않으며<br>
-    이웃을 모욕하지 않는 이라네. <strong>◎</strong>
-  </p>
-
-  <p>
-    ○ 그는 악인을 업신여기지만<br>
-    주님을 경외하는 이들은 존중한다네.<br>
-    손해 보는 맹세라도 바꾸지 않고<br>
-    이자를 받으려 돈놀이 않으며<br>
-    죄 없는 이를 해치는 뇌물 받지 않는다네.<br>
-    이 모든 것 행하는 그 사람,<br>
-    영원토록 흔들림 없으리라. <strong>◎</strong>
-  </p>
-
-  <hr>
-  <h3>청원기도</h3>
-  <p>
-    † 형제자매 여러분,<br>
-    성인들이 성자의 모습을 닮게 하시고<br>
-    성령의 힘으로 교회를 끊임없이 거룩하게 하시는<br>
-    하느님 아버지께 간절히 기도합시다.
-  </p>
-  <p><strong>◎</strong> 주님, 저희의 기도를 들어주소서.</p>
-
-  <ol class="list">
-    <li>아쿠티스 성인을 위하여<br><strong>◎</strong> 주님, 저희의 기도를 들어 주소서.</li>
-    <li>교회를 위하여<br><strong>◎</strong> 주님, 저희의 기도를 들어 주소서.</li>
-    <li>cpbc를 위하여<br><strong>◎</strong> 주님, 저희의 기도를 들어 주소서.</li>
-    <li>후원자들을 위하여<br><strong>◎</strong> 주님, 저희의 기도를 들어 주소서.</li>
-  </ol>
-
-  <hr>
-  <h3>축복기도</h3>
-  <p>
-    † 여러 민족들 가운데서도<br>
-    같은 성령의 힘으로 한데 모이고<br>
-    같은 성덕으로 부르심을 받은 우리는<br>
-    한 분이신 하느님 아버지께 간절히 기도합시다.
-  </p>
-  <p class="muted">모두 잠깐 침묵하며 기도한 다음에,<br>집전자는 팔을 펴 들고 축복 기도를 바칩니다.</p>
-
-    <p>
-      † 모든 은총과 성덕의 샘이신 하느님,<br>
-      아쿠티스 성인의 이 성상을 마련한 자녀들을 인자로이 굽어보시어,<br>
-      그리스도의 벗이며 공동 상속자로서 복음의 증인이 되고,<br>
-      하느님 앞에 뛰어난 전구자가 된 아쿠티스 성인을 본받게 하소서.<br>
-      우리 주 그리스도를 통하여 비나이다.
-    </p>
-    <p><strong>◎</strong> 아멘.</p>
-    <p class="muted">(집전자는 성상에 성수를 뿌립니다.)</p>
-
-  <hr>
-  <h3>마침 예식과 강복</h3>
-  <ul class="list">
-    <li>† 주님께서 여러분과 함께.<br><strong>◎</strong> 또한 사제의 영과 함께.</li>
-    <li>† 성인들의 영광이요 기쁨이신 하느님,<br>성인들의 보호를 받는 저희에게 영원한 복을 내려 주소서.<br><strong>◎</strong> 아멘.</li>
-    <li>† 하느님, 성인들의 전구로 저희가 현세의 악에서 해방되고<br>성인들의 거룩한 생활을 본받아 언제나 하느님과 형제들에게 봉사하도록 은총을 내려 주소서.<br><strong>◎</strong> 아멘.</li>
-    <li>† 하느님, 거룩하고 영원한 평화 속에서<br>자녀들이 하늘의 시민이 된 것을 교회가 기뻐하오니,<br>저희도 모든 성인과 함께 하늘 나라의 기쁨을 누리게 하소서.<br><strong>◎</strong> 아멘.</li>
-    <li>† 전능하신 천주 성부와 성자와 성령께서는<br>여기 모인 모든 이에게 강복하소서.<br><strong>◎</strong> 아멘.</li>
-  </ul>
-
-  <p>† 주님을 찬미합시다.<br><strong>◎</strong> 하느님 감사합니다.</p>
-  <p class="muted">※ 집전자는 성상에 인사 후 퇴장합니다.</p>
-</article>
-
-
-<!-- 다큐 영상 -->
-<article id="p4" class="panel" role="tabpanel" aria-labelledby="t4">
-  <h2>카를로 아쿠티스 다큐 영상</h2>
-  <div class="video" aria-label="다큐 영상">
-    <video
-      controls
-      playsinline
-      webkit-playsinline
-      preload="metadata"
-      style="width:100%;height:100%;border-radius:14px;object-fit:cover"
-    >
-      <source src="https://image.cpbc.co.kr/cpbc_event/2025_sanacutis/sanacutis-full.mp4" type="video/mp4">
-      브라우저에서 영상을 지원하지 않습니다. 
-      <a href="https://image.cpbc.co.kr/cpbc_event/2025_sanacutis/sanacutis-full.mp4" target="_blank" rel="noreferrer">여기서 보기</a>
-    </video>
+      <!-- p3: 성가 -->
+<article id="p3" class="panel" role="tabpanel" aria-labelledby="t3">
+  <h2>성가</h2>
+  <p class="muted">행사 중 부를 성가의 악보입니다. 필요 시 확대하여 확인하세요.</p>
+  <div style="text-align:center">
+    <img 
+      src="https://maria.catholic.or.kr/files/mp3/sungga/img/2012/2012040081.jpg" 
+      alt="성가 악보" 
+      style="max-width:100%; height:auto; border:1px solid var(--border); border-radius:14px"
+      loading="lazy">
   </div>
+  <p class="muted" style="margin-top:8px">
+    ※ 이미지가 보이지 않으면 
+    <a href="https://maria.catholic.or.kr/files/mp3/sungga/img/2012/2012040081.jpg" 
+       target="_blank" rel="noreferrer">여기</a>를 클릭하세요.
+  </p>
 </article>
-      <!-- E-BOOK -->
+
+      <!-- p4: 전례문(응답) — 기존 p3 내용을 이동 -->
+      <article id="p4" class="panel" role="tabpanel" aria-labelledby="t4">
+        <h2>전례문 (◎ 응답 중심)</h2>
+
+        <h3>시작 예식</h3>
+        <p>† 성부와 성자와 성령의 이름으로.<br>
+        <strong>◎</strong> 아멘.</p>
+
+        <p>† 평화가 여러분과 함께.<br>
+        <strong>◎</strong> 또한 사제의 영과 함께.</p>
+
+        <p>
+          † 사랑하는 형제 여러분,<br>
+          우리는 아쿠티스 성인의 성상을 마련하여<br>
+          공적인 공경의 대상으로 모시고<br>
+          하느님께 찬미를 드리는 예식을 거행하려고<br>
+          여기 모였습니다.<br><br>
+
+          우리는 먼저 이 예식의 뜻을 올바로 알아듣도록<br>
+          마음의 준비를 갖추어야 하겠습니다.<br><br>
+
+          어머니인 교회는 성인들의 성상을<br>
+          신자들이 공경하도록 모시고,<br>
+          그리스도를 충실히 따른 성인들의 모상을 바라보며<br>
+          우리가 미래의 도성을 찾아 어떤 길을 걸어가야<br>
+          안전하게 그리스도와 만나 완전히 일치하게 되는지<br>
+          배우기를 바랍니다.<br><br>
+
+          성인들은 예수 그리스도의 벗이고<br>
+          공동 상속자이며, 우리의 형제이고 훌륭한 은인입니다.<br>
+          그들은 우리를 사랑하고 우리를 도와주며,<br>
+          우리를 위하여 열심히 전구하고<br>
+          놀라운 방법으로 우리와 친교를 이룹니다.<br><br>
+
+          그러므로 우리는 정성을 다하여<br>
+          이 예식에 참여합시다.
+        </p>
+
+        <hr>
+        <h3>말씀 전례</h3>
+        <p>▪ 독서 1요한 5,1-5<br>
+        &lt;세상을 이긴 그 승리는 바로 우리 믿음의 승리입니다.&gt;</p>
+
+        <p>
+          사랑하는 여러분,<br>
+          예수님께서 그리스도이심을 믿는 사람은<br>
+          모두 하느님에게서 태어났습니다.… (중략)
+        </p>
+
+        <p>● 주님의 말씀입니다.<br>
+        <strong>◎</strong> 하느님 감사합니다.</p>
+
+        <p>▪ 화답송 &lt; 시편 15(14),2-3,4-5 &gt;</p>
+        <p><strong>◎</strong> 주님, 의로운 이는 당신의 거룩한 산에서 지내리이다.</p>
+
+        <p>
+          ○ 흠 없이 걸어가고 의로운 일을 하며<br>
+          마음속 진실을 말하는 이,<br>
+          함부로 혀를 놀리지 않고<br>
+          친구를 해치지 않으며<br>
+          이웃을 모욕하지 않는 이라네. <strong>◎</strong>
+        </p>
+
+        <p>
+          ○ 그는 악인을 업신여기지만<br>
+          주님을 경외하는 이들은 존중한다네.<br>
+          손해 보는 맹세라도 바꾸지 않고<br>
+          이자를 받으려 돈놀이 않으며<br>
+          죄 없는 이를 해치는 뇌물 받지 않는다네.<br>
+          이 모든 것 행하는 그 사람,<br>
+          영원토록 흔들림 없으리라. <strong>◎</strong>
+        </p>
+
+        <hr>
+        <h3>청원기도</h3>
+        <p>
+          † 형제자매 여러분,<br>
+          성인들이 성자의 모습을 닮게 하시고<br>
+          성령의 힘으로 교회를 끊임없이 거룩하게 하시는<br>
+          하느님 아버지께 간절히 기도합시다.
+        </p>
+        <p><strong>◎</strong> 주님, 저희의 기도를 들어주소서.</p>
+
+        <ol class="list">
+          <li>아쿠티스 성인을 위하여<br><strong>◎</strong> 주님, 저희의 기도를 들어 주소서.</li>
+          <li>교회를 위하여<br><strong>◎</strong> 주님, 저희의 기도를 들어 주소서.</li>
+          <li>cpbc를 위하여<br><strong>◎</strong> 주님, 저희의 기도를 들어 주소서.</li>
+          <li>후원자들을 위하여<br><strong>◎</strong> 주님, 저희의 기도를 들어 주소서.</li>
+        </ol>
+
+        <hr>
+        <h3>축복기도</h3>
+        <p>
+          † 여러 민족들 가운데서도<br>
+          같은 성령의 힘으로 한데 모이고<br>
+          같은 성덕으로 부르심을 받은 우리는<br>
+          한 분이신 하느님 아버지께 간절히 기도합시다.
+        </p>
+        <p class="muted">모두 잠깐 침묵하며 기도한 다음에,<br>집전자는 팔을 펴 들고 축복 기도를 바칩니다.</p>
+
+          <p>
+            † 모든 은총과 성덕의 샘이신 하느님,<br>
+            아쿠티스 성인의 이 성상을 마련한 자녀들을 인자로이 굽어보시어,<br>
+            그리스도의 벗이며 공동 상속자로서 복음의 증인이 되고,<br>
+            하느님 앞에 뛰어난 전구자가 된 아쿠티스 성인을 본받게 하소서.<br>
+            우리 주 그리스도를 통하여 비나이다.
+          </p>
+          <p><strong>◎</strong> 아멘.</p>
+          <p class="muted">(집전자는 성상에 성수를 뿌립니다.)</p>
+
+        <hr>
+        <h3>마침 예식과 강복</h3>
+        <ul class="list">
+          <li>† 주님께서 여러분과 함께.<br><strong>◎</strong> 또한 사제의 영과 함께.</li>
+          <li>† 성인들의 영광이요 기쁨이신 하느님,<br>성인들의 보호를 받는 저희에게 영원한 복을 내려 주소서.<br><strong>◎</strong> 아멘.</li>
+          <li>† 하느님, 성인들의 전구로 저희가 현세의 악에서 해방되고<br>성인들의 거룩한 생활을 본받아 언제나 하느님과 형제들에게 봉사하도록 은총을 내려 주소서.<br><strong>◎</strong> 아멘.</li>
+          <li>† 하느님, 거룩하고 영원한 평화 속에서<br>자녀들이 하늘의 시민이 된 것을 교회가 기뻐하오니,<br>저희도 모든 성인과 함께 하늘 나라의 기쁨을 누리게 하소서.<br><strong>◎</strong> 아멘.</li>
+          <li>† 전능하신 천주 성부와 성자와 성령께서는<br>여기 모인 모든 이에게 강복하소서.<br><strong>◎</strong> 아멘.</li>
+        </ul>
+
+        <p>† 주님을 찬미합시다.<br><strong>◎</strong> 하느님 감사합니다.</p>
+        <p class="muted">※ 집전자는 성상에 인사 후 퇴장합니다.</p>
+      </article>
+
+      <!-- p5: 다큐 영상 (기존 p4) -->
       <article id="p5" class="panel" role="tabpanel" aria-labelledby="t5">
+        <h2>카를로 아쿠티스 다큐 영상</h2>
+        <div class="video" aria-label="다큐 영상">
+          <video
+            controls
+            playsinline
+            webkit-playsinline
+            preload="metadata"
+            style="width:100%;height:100%;border-radius:14px;object-fit:cover"
+          >
+            <source src="https://image.cpbc.co.kr/cpbc_event/2025_sanacutis/sanacutis-full.mp4" type="video/mp4">
+            브라우저에서 영상을 지원하지 않습니다. 
+            <a href="https://image.cpbc.co.kr/cpbc_event/2025_sanacutis/sanacutis-full.mp4" target="_blank" rel="noreferrer">여기서 보기</a>
+          </video>
+        </div>
+      </article>
+
+      <!-- p6: E-BOOK (기존 p5) -->
+      <article id="p6" class="panel" role="tabpanel" aria-labelledby="t6">
         <h2>E-BOOK: 카를로 아쿠티스</h2>
         <div class="pdf-wrap">
           <iframe
@@ -429,7 +461,7 @@
     </div>
   </section>
 
-  <footer>© 2025 cpbc Catholic Peace Broadcasting Corporation</footer>
+<footer>© 2025 cpbc Catholic Peace Broadcasting Corporation · 제작 : 총무팀</footer>
 
 <script>
   let slideIndex = 0;
